@@ -2,19 +2,29 @@
   <div class="hello">
     <ul>
       <li><a href="javascript:void(0)" @click="changeCom('alert')">Alert</a></li>
+      <li><a href="javascript:void(0)" @click="changeCom('loading')">Loading</a></li>
     </ul>
     <fepawn-alert 
     :show="alertShow" 
     :title="alertTitle"
     :content="alertContent" 
     :confirmValue="alertConfirmValue"
-    @confirm="alertConfirm">
+    :hasCancel="hasCancel"
+    :cancelValue="alertCancelValue"
+    @confirm="alertConfirm"
+    @cancel="alertCancel"
+    >
     </fepawn-alert>
+    <fepawn-loading
+    :show="loadingShow"
+    :info="loadingInfo"
+    ></fepawn-loading>
   </div>
 </template>
 
 <script>
 import Alert from '@/components/Alert'
+import Loading from '@/components/Loading'
 export default {
   name: 'HelloWorld',
   data () {
@@ -22,7 +32,11 @@ export default {
       alertShow: false,
       alertTitle: '错误信息',
       alertContent: '对不起，您的账号不存在！',
-      alertConfirmValue: '确定'
+      alertConfirmValue: '确定',
+      alertCancelValue: '取消',
+      hasCancel: true,
+      loadingShow: false,
+      loadingInfo: 'loading'
     }
   },
   methods: {
@@ -31,16 +45,25 @@ export default {
         case 'alert':
           this.alertShow = true
           break
+        case 'loading':
+          this.loadingShow = true
+          break
         default:
           break
       }
     },
     alertConfirm () {
+      console.log('点击了确认按钮')
+      this.alertShow = false
+    },
+    alertCancel () {
+      console.log('点击了取消按钮')
       this.alertShow = false
     }
   },
   components: {
-    'fepawn-alert': Alert
+    'fepawn-alert': Alert,
+    'fepawn-loading': Loading
   }
 }
 </script>

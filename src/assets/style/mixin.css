@@ -1,19 +1,28 @@
 @media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5){
-  .border-1px::before{
+  .border-top-1px::before{
     transform: scaleY(0.7);
+  }   
+  .border-right-1px::before{
+    transform: scaleX(0.7);
   }   
 }
 
 @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
-  .border-1px::before{
+  .border-top-1px::before{
     transform: scaleY(0.5);
-  }   
+  }  
+  .border-right-1px::before{
+    transform: scaleX(0.5);
+  }    
 }
 
 @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
-  .border-1px::before{
+  .border-top-1px::before{
     transform: scaleY(0.333);
-  }   
+  }
+  .border-right-1px::before{
+    transform: scaleX(0.333);
+  }    
 }
 
 

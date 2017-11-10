@@ -1,9 +1,9 @@
 
 /* 上方边框一像素 */
-.border-1px{
+.border-top-1px{
   position: relative;
 }
-.border-1px::before{
+.border-top-1px::before{
   content: '';
   position: absolute;
   left: 0;
@@ -11,6 +11,20 @@
   top: 0;
   height: 1px;
   border-top: 1px solid #D5D5D6;
+  color: #D5D5D6;
+}
+/* 右边边框一像素 */
+.border-right-1px{
+  position: relative;
+}
+.border-right-1px::before{
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  border-right: 1px solid #D5D5D6;
   color: #D5D5D6;
 }
 

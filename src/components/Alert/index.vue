@@ -9,7 +9,10 @@
           <div class="middle-title">{{title}}</div>
           <div class="middle-content">{{content}}</div>
         </div>
-        <div class="confirm border-1px" v-touch-active @click="confirm">{{confirmValue}}</div>
+        <div class="confirm border-top-1px" >
+          <div v-show="hasCancel" class="cancel border-right-1px" v-touch-active @click.stop.prevent="cancel">{{cancelValue}}</div>
+          <div v-touch-active @click.stop.prevent="confirm">{{confirmValue}}</div>
+        </div>
       </div>
     </transition>
   </div>
@@ -34,6 +37,14 @@ export default {
     confirmValue: {
       type: String,
       default: '确 定'
+    },
+    cancelValue: {
+      type: String,
+      default: '取 消'
+    },
+    hasCancel: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -42,8 +53,10 @@ export default {
   },
   methods: {
     confirm () {
-      // this.fepawnAlertShow = false
       this.$emit('confirm')
+    },
+    cancel () {
+      this.$emit('cancel')
     }
   },
   directives: {
@@ -52,9 +65,11 @@ export default {
 }
 
 // :show 显示隐藏(必传)
-// :title 标题(选传)
+// :title 标题(选传，默认不显示)
 // :content 主要内容(必传)
-// :confirmValue 确定的文案(选传)
+// :confirmValue 确定按钮的文案(选传，默认确定)
+// :hasCancel 是否显示取消按钮(选传，默认不显示)
+// :cancelValue 取消按钮的文案(选传，默认取消)
 // @confirm 监听点击确定事件
 </script>
 
@@ -126,6 +141,10 @@ export default {
   line-height: 48px;
   text-align: center;
   color: #000;
+  display: flex;
+}
+.confirm div{
+ flex: 1 1 auto;
 }
 
 [data-touch].active {
