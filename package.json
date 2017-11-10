@@ -5,7 +5,7 @@
   "author": "孙晨 <1151832942@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dashboard -- node build/dev-server.js",
+    "dev": "node build/dev-server.js",
     "start": "npm run dev",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src"

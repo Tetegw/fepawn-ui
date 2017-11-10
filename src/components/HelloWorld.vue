@@ -1,8 +1,10 @@
 <template>
   <div class="hello">
+    <img class="logo" src="../assets/logo.png">
     <ul>
       <li><a href="javascript:void(0)" @click="changeCom('alert')">Alert</a></li>
       <li><a href="javascript:void(0)" @click="changeCom('loading')">Loading</a></li>
+      <li><a href="javascript:void(0)" @click="changeCom('checkList')">checkList</a></li>
     </ul>
     <fepawn-alert 
     :show="alertShow" 
@@ -15,10 +17,6 @@
     @cancel="alertCancel"
     >
     </fepawn-alert>
-    <fepawn-loading
-    :show="loadingShow"
-    :info="loadingInfo"
-    ></fepawn-loading>
   </div>
 </template>
 
@@ -34,9 +32,7 @@ export default {
       alertContent: '对不起，您的账号不存在！',
       alertConfirmValue: '确定',
       alertCancelValue: '取消',
-      hasCancel: true,
-      loadingShow: false,
-      loadingInfo: 'loading'
+      hasCancel: true
     }
   },
   methods: {
@@ -46,7 +42,10 @@ export default {
           this.alertShow = true
           break
         case 'loading':
-          this.loadingShow = true
+          this.$router.push({path: '/loading'})
+          break
+        case 'checkList':
+          this.$router.push({path: '/checkList'})
           break
         default:
           break
@@ -73,7 +72,10 @@ export default {
 h1, h2 {
   font-weight: normal;
 }
-
+.logo{
+  width: 200px;
+  height: 200px;
+}
 ul {
   list-style-type: none;
   padding: 0;

@@ -1,4 +1,15 @@
-
+body, html{
+  line-height: 1;
+  font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', Arial, Helvetica, sans-serif;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+html{
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  /* 解决IOS默认滑动很卡的情况 */
+  -webkit-overflow-scrolling : touch;
+}
 /* 上方边框一像素 */
 .border-top-1px{
   position: relative;
@@ -34,3 +45,12 @@
 }
 
 
+/* 全屏页面 */
+.fullPage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+}
