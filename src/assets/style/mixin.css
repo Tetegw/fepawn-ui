@@ -5,6 +5,9 @@
   .border-right-1px::before{
     transform: scaleX(0.7);
   }   
+  .border-bot-1px::after{
+    transform: scaleY(0.7);
+  }   
 }
 
 @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
@@ -14,6 +17,9 @@
   .border-right-1px::before{
     transform: scaleX(0.5);
   }    
+  .border-bot-1px::after{
+    transform: scaleY(0.5);
+  }    
 }
 
 @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
@@ -22,6 +28,9 @@
   }
   .border-right-1px::before{
     transform: scaleX(0.333);
+  }    
+  .border-bot-1px::after{
+    transform: scaleY(0.333);
   }    
 }
 

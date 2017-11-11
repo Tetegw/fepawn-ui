@@ -24,6 +24,20 @@ html{
   border-top: 1px solid #D5D5D6;
   color: #D5D5D6;
 }
+/* 下方边框一像素 */
+.border-bot-1px{
+  position: relative;
+}
+.border-bot-1px::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  border-top: 1px solid #D5D5D6;
+  color: #D5D5D6;
+}
 /* 右边边框一像素 */
 .border-right-1px{
   position: relative;
