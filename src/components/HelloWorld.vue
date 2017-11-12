@@ -5,6 +5,7 @@
       <li><a href="javascript:void(0)" @click="changeCom('alert')">Alert</a></li>
       <li><a href="javascript:void(0)" @click="changeCom('loading')">Loading</a></li>
       <li><a href="javascript:void(0)" @click="changeCom('checkList')">checkList</a></li>
+      <li><a href="javascript:void(0)" @click="readMe">文档说明</a></li>
     </ul>
     <fepawn-alert 
     :show="alertShow" 
@@ -58,6 +59,9 @@ export default {
     alertCancel () {
       console.log('点击了取消按钮')
       this.alertShow = false
+    },
+    readMe () {
+      window.location.href = 'https://tetegw.github.io/fepawn-ui/dist/staic/readMe.md'
     }
   },
   components: {
