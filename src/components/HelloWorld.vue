@@ -61,7 +61,7 @@ export default {
       this.alertShow = false
     },
     readMe () {
-      window.location.href = 'https://tetegw.github.io/fepawn-ui/dist/staic/readMe.md'
+      window.location.href = 'https://tetegw.github.io/fepawn-ui/dist/static/readMe.html'
     }
   },
   components: {
