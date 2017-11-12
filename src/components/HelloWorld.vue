@@ -75,6 +75,7 @@ h1, h2 {
 .logo{
   width: 200px;
   height: 200px;
+  margin: 20px auto;
 }
 ul {
   list-style-type: none;

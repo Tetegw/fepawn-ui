@@ -55,7 +55,7 @@ html{
 
 /* 点击态样式 */
 .touch-active{
-  background: #f0f0f0;
+  background: #f0f0f0 !important;
 }
 
 
