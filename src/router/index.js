@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Loading from '@/components/ModulePage/loadingPage'
 import CheckList from '@/components/ModulePage/checkListPage'
+import Switch from '@/components/ModulePage/switchPage'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/checkList',
       name: 'CheckList',
       component: CheckList
+    },
+    {
+      path: '/switch',
+      name: 'Switch',
+      component: Switch
     }
   ]
 })

@@ -5,6 +5,7 @@
       <li><a href="javascript:void(0)" @click="changeCom('alert')">Alert</a></li>
       <li><a href="javascript:void(0)" @click="changeCom('loading')">Loading</a></li>
       <li><a href="javascript:void(0)" @click="changeCom('checkList')">checkList</a></li>
+      <li><a href="javascript:void(0)" @click="changeCom('switch')">switch</a></li>
       <li><a href="javascript:void(0)" @click="readMe">文档说明</a></li>
     </ul>
     <fepawn-alert 
@@ -48,6 +49,9 @@ export default {
         case 'checkList':
           this.$router.push({path: '/checkList'})
           break
+        case 'switch':
+          this.$router.push({path: '/switch'})
+          break
         default:
           break
       }
@@ -61,7 +65,7 @@ export default {
       this.alertShow = false
     },
     readMe () {
-      window.location.href = 'https://tetegw.github.io/fepawn-ui/dist/static/readMe.html'
+      window.location.href = 'https://tetegw.github.io/fepawn-ui/dist/static/readMe.md'
     }
   },
   components: {
@@ -76,6 +80,9 @@ export default {
 h1, h2 {
   font-weight: normal;
 }
+.hello{
+  margin-top: 60px;
+}
 .logo{
   width: 200px;
   height: 200px;
@@ -88,7 +95,7 @@ ul {
 
 li {
   display: inline-block;
-  margin: 0 10px;
+  margin: 5px 10px;
 }
 
 a {

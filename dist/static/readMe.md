@@ -31,9 +31,8 @@ npm run build
 :hasCancel 是否显示取消按钮(选传，默认不显示)
 :cancelValue 取消按钮的文案(选传，默认取消)
 @confirm 监听点击确定事件
+@cancel 监听点击取消事件
 ```
-
-
 
 ### loading
 
@@ -42,16 +41,26 @@ npm run build
 :info 显示的文案(选传，默认无文案)
 ```
 
-
-
 ### checkList
 
 ```
 :data 渲染数据(必传 [{nama: 'aa', value: 'bb'}])
 :hasSep  是否有分隔线(选传，默认有分隔线true)
+iconFloatR  icon按钮是否显示在右边(选传，默认false在左边)
 :showAll 全选按钮的显示(选传，默认显示true)
 :showInvert  反选按钮的显示(选传，默认显示true)
 :iconColor 选中状态图标的颜色(选传，字符串，默认#1e7e71)
-@checked 监听选中事件
+@checked 监听选中事件，返回选中元素的数组
+@allChecked 监听是否被全选事件，返回true(已全选)和false(未全选)
+```
+
+### switch
+
+```
+:color 按钮选中时背景颜色(选传，字符串('#1e7e71')，默认#1e7e71)
+:height  按钮大小，按高度等比例缩放(选传，字符串('20px')，默认值20px)
+:disabled  按钮是否禁用(选传，布尔值，默认值false)
+:default  默认状态(选传，布尔值，默认值false)
+@switch-change  监听按钮点击状态
 ```
 
