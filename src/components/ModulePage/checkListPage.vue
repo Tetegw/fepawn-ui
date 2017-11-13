@@ -5,14 +5,18 @@
       <check-list
         :data="checkListData"
         :hasSep="true"
+        float="right"
         :showAll="true"
         :showInvert="true"
-        :iconColor="'#1e7e71'"
+        iconColor="#1e7e71"
         @checked="checkListChecked"
+        @allChecked="checkListAllChecked"
       ></check-list>
     </div>
     <p>结果：</p>
     <div v-show="CheckedVal.length">{{CheckedVal}}</div>
+    <p>是否全选：</p>
+    <div>{{allCheckedRes}}</div>
   </div>
 </template>
 
@@ -39,7 +43,8 @@ export default {
           value: '苏州'
         }
       ],
-      CheckedVal: []
+      CheckedVal: [],
+      allCheckedRes: '未全选'
     }
   },
   components: {
@@ -48,6 +53,13 @@ export default {
   methods: {
     checkListChecked (val) {
       this.CheckedVal = val
+    },
+    checkListAllChecked (flag) {
+      if (flag) {
+        this.allCheckedRes = '已全选'
+      } else {
+        this.allCheckedRes = '未全选'
+      }
     }
   }
 }

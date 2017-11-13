@@ -68,3 +68,11 @@ html{
   right: 0;
   background: #fff;
 }
+
+/* 右浮动 */
+.fr{
+  float: right !important;
+}
+.fl{
+  float: left !important;
+}

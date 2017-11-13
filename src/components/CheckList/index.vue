@@ -2,7 +2,7 @@
   <div class="fepawn-check-list" v-if="data.length > 0">
     <div class="border-top-1px border-bot-1px">
         <label v-for="(item, index) in data" :key="index" class="check-list-item" :class="{'border-top-1px': hasSep}" v-touch-active>
-          <div class="checkBtn iconfont" :class="{'icon-gou': checkValue.indexOf(item.value) > -1}" :style="{'color': iconColor}">
+          <div class="checkBtn iconfont" :class="{'icon-gou': checkValue.indexOf(item.value) > -1, 'fr': float === 'right'}" :style="{'color': iconColor}">
             <input type="checkbox" v-model="checkValue" :value="item.value">
           </div>
           <div class="checkInfo">{{item.name}}</div>
@@ -24,6 +24,10 @@ export default {
     hasSep: {
       type: Boolean,
       default: true
+    },
+    float: {
+      type: String,
+      default: 'left'
     },
     showAll: {
       type: Boolean,
@@ -48,6 +52,13 @@ export default {
     checkValue () {
       this.checkedFlag = this.checkValue.length === this.data.length
       this.$emit('checked', this.checkValue)
+    },
+    checkedFlag (newVal) {
+      if (newVal) {
+        this.$emit('allChecked', true)
+      } else {
+        this.$emit('allChecked', false)
+      }
     }
   },
   directives: {
@@ -102,8 +113,7 @@ export default {
   border: 0;
 }
 .checkBtn{
-  display: inline-block;
-  vertical-align: middle;
+  float: left;
   width: 40px;
   height: 32px;
   position: relative;
