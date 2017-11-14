@@ -4,8 +4,9 @@
     <ul>
       <li><a href="javascript:void(0)" @click="changeCom('alert')">Alert</a></li>
       <li><a href="javascript:void(0)" @click="changeCom('loading')">Loading</a></li>
-      <li><a href="javascript:void(0)" @click="changeCom('checkList')">checkList</a></li>
-      <li><a href="javascript:void(0)" @click="changeCom('switch')">switch</a></li>
+      <li><a href="javascript:void(0)" @click="changeCom('checkList')">CheckList</a></li>
+      <li><a href="javascript:void(0)" @click="changeCom('switch')">Switch</a></li>
+      <li><a href="javascript:void(0)" @click="changeCom('toast')">Toast</a></li>
       <li><a href="javascript:void(0)" @click="readMe">文档说明</a></li>
     </ul>
     <fepawn-alert 
@@ -45,6 +46,9 @@ export default {
           break
         case 'loading':
           this.$router.push({path: '/loading'})
+          break
+        case 'toast':
+          this.$router.push({path: '/toast'})
           break
         case 'checkList':
           this.$router.push({path: '/checkList'})

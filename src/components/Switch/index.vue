@@ -19,14 +19,14 @@ export default {
       type: Boolean,
       default: false
     },
-    default: {
+    status: {
       type: Boolean,
       default: false
     }
   },
   data () {
     return {
-      checkedValue: this.default || false
+      checkedValue: this.status
     }
   },
   mounted () {
@@ -36,7 +36,7 @@ export default {
     }
   },
   watch: {
-    default (newVal) {
+    status (newVal) {
       this.checkedValue = newVal
     },
     checkedValue (newVal, oldVal) {

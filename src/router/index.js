@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Loading from '@/components/ModulePage/loadingPage'
+import Toast from '@/components/ModulePage/toastPage'
 import CheckList from '@/components/ModulePage/checkListPage'
 import Switch from '@/components/ModulePage/switchPage'
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/loading',
       name: 'Loading',
       component: Loading
+    },
+    {
+      path: '/toast',
+      name: 'Toast',
+      component: Toast
     },
     {
       path: '/checkList',
