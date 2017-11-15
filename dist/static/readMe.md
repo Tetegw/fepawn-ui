@@ -64,3 +64,15 @@ iconFloatR  icon按钮是否显示在右边(选传，默认false在左边)
 @switch-change  监听按钮点击状态
 ```
 
+### toast
+
+```
+:show 显示状态(必传，布尔值，默认false)
+:info  显示的文字(必传，字符串)
+:iconType  icon的类型(选传，字符串，默认success，[success, error, warn])
+:time  显示的实践(选传，默认2000，Number类型)
+:showIcon  是否显示icon(选传，布尔值，默认true显示)
+@onShow  监听显示事件
+@onHide  监听隐藏事件
+```
+

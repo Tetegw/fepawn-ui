@@ -2,7 +2,7 @@
   <div class="fepawn-toast">
     <div class="toast-wrap" v-show="toastShow">
       <div class="icon" v-show="showIcon" >
-        <span class="iconfont icon-toast"></span>
+        <span class="iconfont" :class="[iconClass]"></span>
       </div>
       <div class="info">{{info}}</div>
     </div>
@@ -14,7 +14,8 @@ export default {
   data () {
     return {
       toastShow: this.show,
-      timeout: ''
+      timeout: '',
+      iconClass: 'icon-toast'
     }
   },
   props: {
@@ -33,6 +34,10 @@ export default {
     showIcon: {
       type: Boolean,
       default: true
+    },
+    iconType: {
+      type: String,
+      default: 'success'
     }
   },
   watch: {
@@ -47,9 +52,31 @@ export default {
           this.$emit('onHide')
         }, this.time)
       }
+    },
+    iconType (newVal) {
+      switch (newVal) {
+        case 'success':
+          this.iconClass = 'icon-toast'
+          break
+        case 'error':
+          this.iconClass = 'icon-cuowu'
+          break
+        case 'warn':
+          this.iconClass = 'icon-jinggao'
+          break
+        default:
+          break
+      }
     }
   }
 }
+// :show 显示状态(必传，布尔值，默认false)
+// :info  显示的文字(必传，字符串)
+// :iconType  icon的类型(选传，字符串，默认success，[success, error, warn])
+// :time  显示的实践(选传，默认2000，Number类型)
+// :showIcon  是否显示icon(选传，布尔值，默认true显示)
+// @onShow  监听显示事件
+// @onHide  监听隐藏事件
 </script>
 
 <style>

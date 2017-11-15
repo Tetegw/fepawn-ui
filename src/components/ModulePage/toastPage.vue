@@ -2,16 +2,32 @@
   <div class="fullpage">
     <div class="toastPage-item border-top-1px">
       <div class="clearfix">
-        <span class="fl info">正常使用</span>
+        <span class="fl info">成功信息</span>
         <v-switch class="fr"
           @switch-change="switchChange"
-          :status="switchStatus"
+        ></v-switch>
+      </div>
+    </div>
+    <div class="toastPage-item border-top-1px">
+      <div class="clearfix">
+        <span class="fl info">错误信息</span>
+        <v-switch class="fr"
+          @switch-change="switchChange2"
+        ></v-switch>
+      </div>
+    </div>
+    <div class="toastPage-item border-top-1px">
+      <div class="clearfix">
+        <span class="fl info">警告信息</span>
+        <v-switch class="fr"
+          @switch-change="switchChange3"
         ></v-switch>
       </div>
     </div>
     <toast
       :show="toastShow"
-      info="成功"
+      :info="message"
+      :iconType="toastIconType"
       :time="timeout"
       :showIcon="true"
       @onShow="toastOnShow"
@@ -27,21 +43,33 @@ export default {
   data () {
     return {
       toastShow: false,
-      switchStatus: false,
-      timeout: 1000
+      timeout: 1000,
+      message: '成功',
+      toastIconType: 'success'
     }
   },
   methods: {
     switchChange (val) {
+      this.message = '成功'
+      this.toastIconType = 'success'
+      this.toastShow = val
+    },
+    switchChange2 (val) {
+      this.message = '失败'
+      this.toastIconType = 'error'
+      this.toastShow = val
+    },
+    switchChange3 (val) {
+      this.message = '警告'
+      this.toastIconType = 'warn'
       this.toastShow = val
     },
     toastOnShow () {
       console.log('toast显示中...')
-      this.switchStatus = true
     },
     toastOnHide () {
       console.log('toast已隐藏...')
-      this.switchStatus = false
+      this.toastShow = false
     }
   },
   components: {
