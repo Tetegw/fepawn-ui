@@ -2,7 +2,7 @@
   <div class="fullPage">
     <div class="action-sheet-item border-top-1px border-bot-1px">
       <div class="clearfix">
-        <span class="fl info">成功信息</span>
+        <span class="fl info">正常使用</span>
         <v-switch class="fr"
           @switch-change="switchChange"
           :status="switchShow"
