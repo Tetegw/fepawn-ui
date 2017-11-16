@@ -54,7 +54,7 @@ export default {
 // :color 按钮选中时背景颜色(选传，字符串('#1e7e71')，默认#1e7e71)
 // :height  按钮大小，按高度等比例缩放(选传，字符串('20px')，默认值20px)
 // :disabled  按钮是否禁用(选传，布尔值，默认值false)
-// :default  默认状态(选传，布尔值，默认值false)
+// :status  默认状态(选传，布尔值，默认值false)
 // @switch-change  监听按钮点击状态
 </script>
 

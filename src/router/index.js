@@ -5,6 +5,7 @@ import Loading from '@/components/ModulePage/loadingPage'
 import Toast from '@/components/ModulePage/toastPage'
 import CheckList from '@/components/ModulePage/checkListPage'
 import Switch from '@/components/ModulePage/switchPage'
+import ActionSheet from '@/components/ModulePage/actionSheetPage'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/switch',
       name: 'Switch',
       component: Switch
+    },
+    {
+      path: '/actionSheet',
+      name: 'ActionSheet',
+      component: ActionSheet
     }
   ]
 })

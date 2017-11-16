@@ -76,3 +76,13 @@ iconFloatR  icon按钮是否显示在右边(选传，默认false在左边)
 @onHide  监听隐藏事件
 ```
 
+### actionSheet
+
+```
+:show  显示状态(必传，布尔值，默认false)
+:itemData  列表数据(必传，数组，默认[])
+:showCancel  显示取消按钮(选传，布尔值，默认true显示取消)
+@cancel-action-sheet 监听取消actionSheet事件
+@checkedItem 监听选中对象事件，返回索引index
+```
+
