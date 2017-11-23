@@ -8,6 +8,7 @@
       <li><a href="javascript:void(0)" @click="changeCom('switch')">Switch</a></li>
       <li><a href="javascript:void(0)" @click="changeCom('toast')">Toast</a></li>
       <li><a href="javascript:void(0)" @click="changeCom('actionSheet')">ActionSheet</a></li>
+      <li><a href="javascript:void(0)" @click="changeCom('buttonTab')">buttonTab</a></li>
       <li><a href="javascript:void(0)" @click="readMe">文档说明</a></li>
     </ul>
     <fepawn-alert 
@@ -59,6 +60,9 @@ export default {
           break
         case 'actionSheet':
           this.$router.push({path: '/actionSheet'})
+          break
+        case 'buttonTab':
+          this.$router.push({path: '/buttonTab'})
           break
         default:
           break

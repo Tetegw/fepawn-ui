@@ -6,6 +6,7 @@ import Toast from '@/components/ModulePage/toastPage'
 import CheckList from '@/components/ModulePage/checkListPage'
 import Switch from '@/components/ModulePage/switchPage'
 import ActionSheet from '@/components/ModulePage/actionSheetPage'
+import buttonTab from '@/components/ModulePage/buttonTab'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/actionSheet',
       name: 'ActionSheet',
       component: ActionSheet
+    },
+    {
+      path: '/buttonTab',
+      name: 'buttonTab',
+      component: buttonTab
     }
   ]
 })

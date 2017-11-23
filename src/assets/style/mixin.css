@@ -8,6 +8,11 @@
   .border-bot-1px::after{
     transform: scaleY(0.7);
   }   
+  .border-1px::before{
+    width: 150%;
+    height: 150%;
+    transform: scale(0.7);
+  }   
 }
 
 @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
@@ -20,6 +25,11 @@
   .border-bot-1px::after{
     transform: scaleY(0.5);
   }    
+  .border-1px::before{
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+  }    
 }
 
 @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
@@ -30,6 +40,11 @@
     transform: scaleX(0.333);
   }    
   .border-bot-1px::after{
+    transform: scaleY(0.333);
+  }    
+  .border-1px::before{
+    width: 300%;
+    height: 300%;
     transform: scaleY(0.333);
   }    
 }

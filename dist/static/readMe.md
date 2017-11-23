@@ -86,3 +86,12 @@ iconFloatR  icon按钮是否显示在右边(选传，默认false在左边)
 @checkedItem 监听选中对象事件，返回索引index
 ```
 
+### buttonTab
+
+```
+:fontSize   显示字体大小(选传，Number， 默认16px)
+:itemHeight   显示的按钮高度(选传，Number，默认字体大小*2)
+:indexArr   按钮组的文案(必传，数组，默认['btn1', 'btn2'])
+@checkedItem    监听按钮点击事件，接收点击的index
+```
+
