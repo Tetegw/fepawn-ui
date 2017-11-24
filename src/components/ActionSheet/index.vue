@@ -1,7 +1,7 @@
 <template>
   <div class="action-sheet" v-show="actionShow" @click.stop.prevent="cancelActionSheet">
     <transition name="fade">
-      <div class="action-sheet-mask fullPage" v-show="actionShow" @click.stop.prevent="cancelActionSheet"></div>
+      <div class="action-sheet-mask full-page" v-show="actionShow" @click.stop.prevent="cancelActionSheet"></div>
     </transition>
     <transition name="slideUp">
       <div class="action-sheet-content" v-show="actionShow">
@@ -19,11 +19,11 @@ import TouchActive from '@/directives/touchActive'
 export default {
   data () {
     return {
-      actionShow: this.show
+      actionShow: this.value
     }
   },
   props: {
-    show: {
+    value: {
       type: Boolean,
       default: false
     },
@@ -37,22 +37,24 @@ export default {
     }
   },
   created () {
-    this.actionShow = this.show
+    this.actionShow = this.value
   },
   watch: {
-    show () {
-      this.actionShow = this.show
+    value () {
+      this.actionShow = this.value
     }
   },
   methods: {
     cancelActionSheet () {
       this.actionShow = false
       this.$emit('cancel-action-sheet')
+      this.$emit('input', this.actionShow)
     },
     checkedItem (index) {
+      this.actionShow = false
       this.$emit('checked-item', index)
       this.$emit('cancel-action-sheet')
-      this.actionShow = false
+      this.$emit('input', this.actionShow)
     }
   },
   directives: {

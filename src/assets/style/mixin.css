@@ -45,7 +45,7 @@
   .border-1px::before{
     width: 300%;
     height: 300%;
-    transform: scaleY(0.333);
+    transform: scale(0.333);
   }    
 }
 

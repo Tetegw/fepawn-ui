@@ -24,12 +24,12 @@ npm run build
 ### Alert
 
 ```
-:show 显示隐藏(必传)
+v-model双向绑定 显示隐藏(必传，布尔值，默认false)
 :title 标题(选传，默认不显示)
-:content 主要内容(必传)
-:confirmValue 确定按钮的文案(选传，默认确定)
-:hasCancel 是否显示取消按钮(选传，默认不显示)
-:cancelValue 取消按钮的文案(选传，默认取消)
+:content 主要内容(必传，默认"网络繁忙，请稍候再试！")
+:confirmValue 确定按钮的文案(选传，默认"确定")
+:hasCancel 是否显示取消按钮(选传，布尔值，默认false不显示)
+:cancelValue 取消按钮的文案(选传，默认"取消")
 @confirm 监听点击确定事件
 @cancel 监听点击取消事件
 ```
@@ -57,17 +57,17 @@ iconFloatR  icon按钮是否显示在右边(选传，默认false在左边)
 ### switch
 
 ```
+v-model双向绑定  默认状态(选传，布尔值，默认值false)
 :color 按钮选中时背景颜色(选传，字符串('#1e7e71')，默认#1e7e71)
 :height  按钮大小，按高度等比例缩放(选传，字符串('20px')，默认值20px)
 :disabled  按钮是否禁用(选传，布尔值，默认值false)
-:default  默认状态(选传，布尔值，默认值false)
 @switch-change  监听按钮点击状态
 ```
 
 ### toast
 
 ```
-:show 显示状态(必传，布尔值，默认false)
+v-model双向绑定 显示状态(必传，布尔值，默认false)
 :info  显示的文字(必传，字符串)
 :iconType  icon的类型(选传，字符串，默认success，[success, error, warn])
 :time  显示的实践(选传，默认2000，Number类型)
@@ -79,7 +79,7 @@ iconFloatR  icon按钮是否显示在右边(选传，默认false在左边)
 ### actionSheet
 
 ```
-:show  显示状态(必传，布尔值，默认false)
+v-model双向绑定  显示状态(必传，布尔值，默认false)
 :itemData  列表数据(必传，数组，默认[])
 :showCancel  显示取消按钮(选传，布尔值，默认true显示取消)
 @cancel-action-sheet 监听取消actionSheet事件

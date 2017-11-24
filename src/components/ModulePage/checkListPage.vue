@@ -1,5 +1,5 @@
 <template>
-  <div class="fullPage bgfbf9fe">
+  <div class="full-page bgfbf9fe">
     <p>一般使用</p>
     <div class="check-list-wrap">
       <check-list
@@ -65,11 +65,11 @@ export default {
 }
 </script>
 
-<style>
-.fullPage.bgfbf9fe{
+<style scoped>
+.full-page.bgfbf9fe{
   background-color:#fbf9fe;
 }
-.fullPage.bgfbf9fe p{
+.full-page.bgfbf9fe p{
   text-align: left;
   padding-left: 10px;
   line-height: 40px;

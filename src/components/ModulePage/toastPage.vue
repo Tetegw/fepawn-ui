@@ -1,10 +1,11 @@
 <template>
-  <div class="fullpage">
+  <div class="full-page">
     <div class="toastPage-item border-top-1px">
       <div class="clearfix">
         <span class="fl info">成功信息</span>
         <v-switch class="fr"
-          @switch-change="switchChange"
+          @switch-change="switchChange1"
+          v-model="example1.switchStatus"
         ></v-switch>
       </div>
     </div>
@@ -13,6 +14,7 @@
         <span class="fl info">错误信息</span>
         <v-switch class="fr"
           @switch-change="switchChange2"
+          v-model="example2.switchStatus"
         ></v-switch>
       </div>
     </div>
@@ -21,17 +23,18 @@
         <span class="fl info">警告信息</span>
         <v-switch class="fr"
           @switch-change="switchChange3"
+          v-model="example3.switchStatus"
         ></v-switch>
       </div>
     </div>
     <toast
-      :show="toastShow"
-      :info="message"
-      :iconType="toastIconType"
-      :time="timeout"
-      :showIcon="true"
-      @onShow="toastOnShow"
-      @onHide="toastOnHide"
+      v-model="toastItem.toastShow"
+      :info="toastItem.message"
+      :iconType="toastItem.toastIconType"
+      :time="toastItem.timeout"
+      :showIcon="toastItem.showIcon"
+      @onShow="toastOnShow(toastItem)"
+      @onHide="toastOnHide(toastItem)"
     ></toast>
   </div>
 </template>
@@ -42,34 +45,58 @@ import Switch from '@/components/Switch'
 export default {
   data () {
     return {
-      toastShow: false,
-      timeout: 1000,
-      message: '成功',
-      toastIconType: 'success'
+      toastItem: {},
+      example1: {
+        switchStatus: false,
+        toastShow: false,
+        message: '成功',
+        toastIconType: 'success',
+        showIcon: true,
+        timeout: 1000
+      },
+      example2: {
+        switchStatus: false,
+        toastShow: false,
+        message: '失败',
+        toastIconType: 'error',
+        showIcon: true,
+        timeout: 1000
+      },
+      example3: {
+        switchStatus: false,
+        toastShow: false,
+        message: '警告',
+        toastIconType: 'warn',
+        showIcon: true,
+        timeout: 1000
+      }
     }
   },
   methods: {
-    switchChange (val) {
-      this.message = '成功'
-      this.toastIconType = 'success'
-      this.toastShow = val
+    switchChange1 (val) {
+      this.toastItem = this.example1
+      if (val) {
+        this.toastItem.toastShow = val
+      }
     },
     switchChange2 (val) {
-      this.message = '失败'
-      this.toastIconType = 'error'
-      this.toastShow = val
+      this.toastItem = this.example2
+      if (val) {
+        this.toastItem.toastShow = val
+      }
     },
     switchChange3 (val) {
-      this.message = '警告'
-      this.toastIconType = 'warn'
-      this.toastShow = val
+      this.toastItem = this.example3
+      if (val) {
+        this.toastItem.toastShow = val
+      }
     },
-    toastOnShow () {
+    toastOnShow (toastItem) {
       console.log('toast显示中...')
     },
-    toastOnHide () {
+    toastOnHide (toastItem) {
+      toastItem.switchStatus = false
       console.log('toast已隐藏...')
-      this.toastShow = false
     }
   },
   components: {

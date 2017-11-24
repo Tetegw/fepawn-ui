@@ -1,5 +1,5 @@
 <template>
-  <div class="fullPage">
+  <div class="full-page">
       <fepawn-loading
 				:show="loadingShow"
 				:info="loadingInfo"

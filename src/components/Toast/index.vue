@@ -13,13 +13,13 @@
 export default {
   data () {
     return {
-      toastShow: this.show,
+      toastShow: this.value,
       timeout: '',
       iconClass: 'icon-toast'
     }
   },
   props: {
-    show: {
+    value: {
       type: Boolean,
       default: false
     },
@@ -41,7 +41,7 @@ export default {
     }
   },
   watch: {
-    show (newVal) {
+    value (newVal) {
       if (newVal) {
         // 显示
         this.toastShow = newVal
@@ -50,6 +50,7 @@ export default {
         this.timeout = setTimeout(() => {
           this.toastShow = false
           this.$emit('onHide')
+          this.$emit('input', this.toastShow)
         }, this.time)
       }
     },

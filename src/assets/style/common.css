@@ -63,6 +63,8 @@ html{
   transform-origin: top left;
   left: 0;
   top: 0;
+  width: 100%;
+  height: 100%;
   border: 1px solid #D5D5D6;
   color: #D5D5D6;
 }
@@ -74,7 +76,7 @@ html{
 
 
 /* 全屏页面 */
-.fullPage {
+.full-page {
   position: absolute;
   top: 0;
   bottom: 0;

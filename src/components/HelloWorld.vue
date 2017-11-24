@@ -44,7 +44,7 @@ export default {
     changeCom (params) {
       switch (params) {
         case 'alert':
-          this.alertShow = true
+          this.$router.push({path: '/alert'})
           break
         case 'loading':
           this.$router.push({path: '/loading'})

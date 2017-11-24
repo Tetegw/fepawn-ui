@@ -1,5 +1,5 @@
 <template>
-  <div class="fullPage">
+  <div class="full-page">
     <div class="normal">
       <span>正常使用：</span>
       <v-switch  
@@ -80,7 +80,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .normal{
   margin-top: 20px;
 }

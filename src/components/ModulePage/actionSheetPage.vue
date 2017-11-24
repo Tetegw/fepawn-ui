@@ -1,16 +1,16 @@
 <template>
-  <div class="fullPage">
+  <div class="full-page">
     <div class="action-sheet-item border-top-1px border-bot-1px">
       <div class="clearfix">
         <span class="fl info">正常使用</span>
         <v-switch class="fr"
           @switch-change="switchChange"
-          :status="switchShow"
+          v-model="switchShow"
         ></v-switch>
       </div>
     </div>
     <action-sheet
-      :show="actionSheetShow"
+      v-model="actionSheetShow"
       :itemData="itemData"
       :showCancel="showCancel"
       @cancel-action-sheet="cancelActionSheet"
@@ -37,14 +37,17 @@ export default {
   },
   methods: {
     switchChange (newVal) {
-      this.switchShow = newVal
-      this.actionSheetShow = newVal
+      if (newVal) {
+        this.switchShow = newVal
+        this.actionSheetShow = newVal
+      }
     },
     cancelActionSheet () {
       this.switchShow = false
       console.log('关闭actionSheet')
     },
     switchCheckedItem (index) {
+      this.switchShow = false
       console.log(`选中了${index}`)
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="fullPage">
+  <div class="full-page">
     <div class="content">
       <div>正常使用</div>
       <div class="button-tab-wrap">
@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 @import url('../../assets/style/index.css');
 .content{
   padding: 20px 10px 0;

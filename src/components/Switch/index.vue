@@ -19,14 +19,14 @@ export default {
       type: Boolean,
       default: false
     },
-    status: {
+    value: {
       type: Boolean,
       default: false
     }
   },
   data () {
     return {
-      checkedValue: this.status
+      checkedValue: this.value
     }
   },
   mounted () {
@@ -36,7 +36,7 @@ export default {
     }
   },
   watch: {
-    status (newVal) {
+    value (newVal) {
       this.checkedValue = newVal
     },
     checkedValue (newVal, oldVal) {
@@ -48,6 +48,7 @@ export default {
         this.$refs.switch.style.backgroundColor = '#DFDFDF'
       }
       this.$emit('switch-change', newVal)
+      this.$emit('input', newVal)
     }
   }
 }

@@ -1,10 +1,10 @@
 <template>
   <div class="fepawn-alert" >
     <transition name="fade">
-      <div class="mask" v-show="show"></div>
+      <div class="mask" v-show="alertShow" @click.stop.prevent="cancel"></div>
     </transition>
     <transition name="pulse">
-      <div class="content" v-show="show">
+      <div class="content" v-show="alertShow">
         <div class="middle">
           <div class="middle-title">{{title}}</div>
           <div class="middle-content">{{content}}</div>
@@ -21,8 +21,21 @@
 <script>
 import TouchActive from '@/directives/touchActive'
 export default {
+  data () {
+    return {
+      alertShow: this.value
+    }
+  },
+  created () {
+    this.alertShow = this.value
+  },
+  watch: {
+    value () {
+      this.alertShow = this.value
+    }
+  },
   props: {
-    show: {
+    value: {
       type: Boolean,
       default: false
     },
@@ -47,15 +60,15 @@ export default {
       default: false
     }
   },
-  data () {
-    return {
-    }
-  },
   methods: {
     confirm () {
+      this.alertShow = false
+      this.$emit('input', this.alertShow)
       this.$emit('confirm')
     },
     cancel () {
+      this.alertShow = false
+      this.$emit('input', this.alertShow)
       this.$emit('cancel')
     }
   },
@@ -64,7 +77,7 @@ export default {
   }
 }
 
-// :show 显示隐藏(必传)
+// v-model双向绑定 显示隐藏(必传)
 // :title 标题(选传，默认不显示)
 // :content 主要内容(必传)
 // :confirmValue 确定按钮的文案(选传，默认确定)

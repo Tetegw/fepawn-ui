@@ -2,11 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Loading from '@/components/ModulePage/loadingPage'
+import Alert from '@/components/ModulePage/alertPage'
 import Toast from '@/components/ModulePage/toastPage'
 import CheckList from '@/components/ModulePage/checkListPage'
 import Switch from '@/components/ModulePage/switchPage'
 import ActionSheet from '@/components/ModulePage/actionSheetPage'
-import buttonTab from '@/components/ModulePage/buttonTab'
+import buttonTab from '@/components/ModulePage/buttonTabPage'
 
 Vue.use(Router)
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/',
       name: 'Hello',
       component: HelloWorld
+    },
+    {
+      path: '/alert',
+      name: 'Alert',
+      component: Alert
     },
     {
       path: '/loading',
