@@ -58,9 +58,36 @@ exports.cssLoaders = function (options) {
 }
 
 // Generate loaders for standalone style files (outside of .vue)
+// 为单独的样式文件，产生loaders，排除.vue文件
 exports.styleLoaders = function (options) {
   const output = []
   const loaders = exports.cssLoaders(options)
+  /* { css:
+   [ 'vue-style-loader',
+     { loader: 'css-loader', options: [Object] } ],
+  postcss:
+   [ 'vue-style-loader',
+     { loader: 'css-loader', options: [Object] } ],
+  less:
+   [ 'vue-style-loader',
+     { loader: 'css-loader', options: [Object] },
+     { loader: 'less-loader', options: [Object] } ],
+  sass:
+   [ 'vue-style-loader',
+     { loader: 'css-loader', options: [Object] },
+     { loader: 'sass-loader', options: [Object] } ],
+  scss:
+   [ 'vue-style-loader',
+     { loader: 'css-loader', options: [Object] },
+     { loader: 'sass-loader', options: [Object] } ],
+  stylus:
+   [ 'vue-style-loader',
+     { loader: 'css-loader', options: [Object] },
+     { loader: 'stylus-loader', options: [Object] } ],
+  styl:
+   [ 'vue-style-loader',
+     { loader: 'css-loader', options: [Object] },
+     { loader: 'stylus-loader', options: [Object] } ] } */
   for (const extension in loaders) {
     const loader = loaders[extension]
     output.push({
@@ -70,3 +97,6 @@ exports.styleLoaders = function (options) {
   }
   return output
 }
+
+//  assetsPath
+// css-loader 以及 stylus-loader

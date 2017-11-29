@@ -11,6 +11,7 @@ module.exports = {
     extract: isProduction
   }),
   transformToRequire: {
+    // 以前在写 Vue 的时候经常会写到这样的代码：把图片提前 require 传给一个变量再传给组件。
     video: 'src',
     source: 'src',
     img: 'src',
