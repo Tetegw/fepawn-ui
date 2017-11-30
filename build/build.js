@@ -11,15 +11,17 @@ const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
 
-const spinner = ora('building for production...')
+const spinner = ora('building for production...') // 构建loading
 spinner.start()
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
+  // 删除dist文件
   if (err) throw err
   webpack(webpackConfig, function (err, stats) {
     spinner.stop()
     if (err) throw err
     process.stdout.write(stats.toString({
+      // 向屏幕输出，提示信息
       colors: true,
       modules: false,
       children: false,

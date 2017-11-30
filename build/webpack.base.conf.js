@@ -1,3 +1,5 @@
+// 有空看这个webpack配置
+// http://blog.csdn.net/keliyxyz/article/details/51571386
 'use strict'
 const path = require('path')
 const utils = require('./utils')
@@ -10,9 +12,11 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
+    // 入口文件
     app: './src/main.js'
   },
   output: {
+    // 输出路径，文件名，根路径
     path: config.build.assetsRoot,
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
@@ -21,7 +25,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
+    // 自动解析确定的扩展。能够使用户在引入模块时不带扩展。
     alias: {
+      // alias 化名
+      // 创建 import 或 require 的别名，来确保模块引入变得更简单。例如，一些位于 src/ 文件夹下的常用模块：
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
     }
