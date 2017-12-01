@@ -41,3 +41,5 @@ module.exports = merge(baseWebpackConfig, {
     new FriendlyErrorsPlugin()  // 友好的错误提示    
   ]
 })
+
+// 开发环境需要的各种webpack配置

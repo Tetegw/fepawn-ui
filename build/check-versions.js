@@ -53,3 +53,5 @@ module.exports = function () {
     process.exit(1) // 进程退出
   }
 }
+
+// 检查npm，node的版本(和package.json文件对比)

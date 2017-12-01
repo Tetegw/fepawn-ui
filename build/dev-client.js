@@ -10,3 +10,5 @@ hotClient.subscribe(function (event) {
     window.location.reload()
   }
 })
+
+// eventsource的ployfill 来处理重载事件(reload)
