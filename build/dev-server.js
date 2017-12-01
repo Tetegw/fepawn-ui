@@ -27,6 +27,7 @@ const app = express()
 const compiler = webpack(webpackConfig)   // 执行webpack,传入webpack的dev配置
 
 // 伺服器,对更改文件的监控
+// 启动 webpack-dev-middleware，将 编译后的文件暂存到内存中
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
   quiet: true
@@ -49,9 +50,11 @@ const hotMiddleware = require('webpack-hot-middleware')(compiler, {
 
 // enable hot-reload and state-preserving
 // compilation error display
+// 将 Hot-reload 挂在到 express 服务上并且输出相关的状态、错误
 app.use(hotMiddleware)
 
 // proxy api requests
+// 将 proxyTable 中的请求配置挂在到启动的 express 服务上
 Object.keys(proxyTable).forEach(function (context) {
   // 使用http-proxy-middleware，解决开发环境代理问题
   let options = proxyTable[context]
@@ -63,9 +66,11 @@ Object.keys(proxyTable).forEach(function (context) {
 
 // handle fallback for HTML5 history API 
 // 就是让你的单页面路由处理更自然（比如vue-router的mode设置为html5时）
+// 使用 connect-history-api-fallback 匹配资源，如果不匹配就可以重定向到指定地址
 app.use(require('connect-history-api-fallback')())
 
 // serve webpack bundle output
+// 将暂存到内存中的 webpack 编译后的文件挂在到 express 服务上
 app.use(devMiddleware)
 
 // serve pure static assets
@@ -96,6 +101,7 @@ devMiddleware.waitUntilValid(() => {
     var uri = 'http://localhost:' + port
     console.log('> Listening at ' + uri + '\n')
     // when env is testing, don't need open it
+    // 如果不是测试环境，自动打开浏览器并跳到我们的开发地址
     if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
       // 自动打开浏览器
       opn(uri)

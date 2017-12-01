@@ -42,6 +42,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       sourceMap: true
     }),
     // extract css into its own file
+    // 一个 webpack 扩展，可以提取一些代码并且将它们和文件分离开
+    // 如果我们想将 webpack 打包成一个文件 css js 分离开，那我们需要这个插件
     new ExtractTextPlugin({
       // 使用 extract-text-webpack-plugin就可以把css从js中独立抽离出来
       filename: utils.assetsPath('css/[name].[contenthash].css')

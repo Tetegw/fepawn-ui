@@ -39,5 +39,6 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       '  Tip: built files are meant to be served over an HTTP server.\n' +
       '  Opening index.html over file:// won\'t work.\n'
     ))
+    // 输出提示信息 ～ 提示用户请在 http 服务下查看本页面，否则为空白页
   })
 })
