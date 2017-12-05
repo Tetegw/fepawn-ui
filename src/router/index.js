@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import Loading from '@/components/ModulePage/loadingPage'
-import Alert from '@/components/ModulePage/alertPage'
-import Toast from '@/components/ModulePage/toastPage'
-import CheckList from '@/components/ModulePage/checkListPage'
-import Switch from '@/components/ModulePage/switchPage'
-import ActionSheet from '@/components/ModulePage/actionSheetPage'
-import buttonTab from '@/components/ModulePage/buttonTabPage'
+import Loading from '@/components/_ModulePage/loadingPage'
+import Alert from '@/components/_ModulePage/alertPage'
+import Toast from '@/components/_ModulePage/toastPage'
+import CheckList from '@/components/_ModulePage/checkListPage'
+import Switch from '@/components/_ModulePage/switchPage'
+import ActionSheet from '@/components/_ModulePage/actionSheetPage'
+import ButtonTab from '@/components/_ModulePage/buttonTabPage'
+import BetterScroll from '@/components/_ModulePage/betterScroll'
+import Pullup from '@/components/BetterScroll/pullup'
 
 Vue.use(Router)
 
@@ -50,8 +52,20 @@ export default new Router({
     },
     {
       path: '/buttonTab',
-      name: 'buttonTab',
-      component: buttonTab
+      name: 'ButtonTab',
+      component: ButtonTab
+    },
+    {
+      path: '/betterScroll',
+      name: 'BetterScroll',
+      component: BetterScroll,
+      children: [
+        {
+          path: 'pullup',
+          name: 'Pullup',
+          component: Pullup
+        }
+      ]
     }
   ]
 })

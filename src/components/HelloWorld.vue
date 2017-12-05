@@ -2,90 +2,19 @@
   <div class="hello">
     <img class="logo" src="../assets/logo.png">
     <ul>
-      <li><a href="javascript:void(0)" @click="changeCom('alert')">Alert</a></li>
-      <li><a href="javascript:void(0)" @click="changeCom('loading')">Loading</a></li>
-      <li><a href="javascript:void(0)" @click="changeCom('checkList')">CheckList</a></li>
-      <li><a href="javascript:void(0)" @click="changeCom('switch')">Switch</a></li>
-      <li><a href="javascript:void(0)" @click="changeCom('toast')">Toast</a></li>
-      <li><a href="javascript:void(0)" @click="changeCom('actionSheet')">ActionSheet</a></li>
-      <li><a href="javascript:void(0)" @click="changeCom('buttonTab')">buttonTab</a></li>
-      <li><a href="javascript:void(0)" @click="readMe">文档说明</a></li>
+      <li><router-link to="/alert">Alert</router-link></li>
+      <li><router-link to="/loading">Loading</router-link></li>
+      <li><router-link to="/checkList">CheckList</router-link></li>
+      <li><router-link to="/switch">Switch</router-link></li>
+      <li><router-link to="/toast">Toast</router-link></li>
+      <li><router-link to="/actionSheet">ActionSheet</router-link></li>
+      <li><router-link to="/buttonTab">buttonTab</router-link></li>
+      <li><router-link to="/betterScroll">betterScroll</router-link></li>
+      <li><a href="https://tetegw.github.io/fepawn-ui/dist/static/readMe.html">文档说明</a></li>
     </ul>
-    <fepawn-alert 
-    :show="alertShow" 
-    :title="alertTitle"
-    :content="alertContent" 
-    :confirmValue="alertConfirmValue"
-    :hasCancel="hasCancel"
-    :cancelValue="alertCancelValue"
-    @confirm="alertConfirm"
-    @cancel="alertCancel"
-    >
-    </fepawn-alert>
   </div>
 </template>
 
-<script>
-import Alert from '@/components/Alert'
-import Loading from '@/components/Loading'
-export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      alertShow: false,
-      alertTitle: '错误信息',
-      alertContent: '对不起，您的账号不存在！',
-      alertConfirmValue: '确定',
-      alertCancelValue: '取消',
-      hasCancel: true
-    }
-  },
-  methods: {
-    changeCom (params) {
-      switch (params) {
-        case 'alert':
-          this.$router.push({path: '/alert'})
-          break
-        case 'loading':
-          this.$router.push({path: '/loading'})
-          break
-        case 'toast':
-          this.$router.push({path: '/toast'})
-          break
-        case 'checkList':
-          this.$router.push({path: '/checkList'})
-          break
-        case 'switch':
-          this.$router.push({path: '/switch'})
-          break
-        case 'actionSheet':
-          this.$router.push({path: '/actionSheet'})
-          break
-        case 'buttonTab':
-          this.$router.push({path: '/buttonTab'})
-          break
-        default:
-          break
-      }
-    },
-    alertConfirm () {
-      console.log('点击了确认按钮')
-      this.alertShow = false
-    },
-    alertCancel () {
-      console.log('点击了取消按钮')
-      this.alertShow = false
-    },
-    readMe () {
-      window.location.href = 'https://tetegw.github.io/fepawn-ui/dist/static/readMe.html'
-    }
-  },
-  components: {
-    'fepawn-alert': Alert,
-    'fepawn-loading': Loading
-  }
-}
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
