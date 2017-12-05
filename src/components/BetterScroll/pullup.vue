@@ -1,6 +1,6 @@
 <template>
   <div class="pull-up-wrap">
-    <b-scroll
+    <b-scroll class="wrapper"
       :data="testData"
       :pulldown="pulldown"
       :listenScroll="listenScroll"
@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     loadMore () {
-      console.log('object')
+      console.log('loadMore')
     },
     scrollEvent (pos) {
       console.log(pos)
@@ -40,8 +40,16 @@ export default {
 </script>
 
 <style>
+ul, li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .pull-up-wrap{
-  height: 100px;
+  margin-top: 20px;
+}
+.wrapper {
+  height: 200px;
   overflow: auto;
 }
 </style>
