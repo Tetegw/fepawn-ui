@@ -101,21 +101,19 @@ export default {
 
       // 是否派发滚动到底部事件，用于上拉加载
       if (this.pullup) {
-        this.scroll.on('scrollEnd', () => {
+        this.scroll.on('touchEnd', (pos) => {
           // 滚动到底部
-          if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
-            this.$emit('scrollToEnd')
+          if (pos.y <= (this.scroll.maxScrollY - 40)) {
+            this.$emit('pullup')
           }
         })
       }
 
       // 是否派发顶部下拉事件，用于下拉刷新
       if (this.pulldown) {
-        this.scroll.on('touchend', (pos) => {
-          console.log('下拉动作')
+        this.scroll.on('touchEnd', (pos) => {
           // 下拉动作
           if (pos.y > 50) {
-            console.log('是否派发顶部下拉事件，用于下拉刷新')
             this.$emit('pulldown')
           }
         })
