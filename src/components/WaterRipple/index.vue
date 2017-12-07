@@ -59,7 +59,8 @@ export default {
   background: #ffefe7;
   border-radius: 50%;
   overflow: hidden;
-  transform: rotate(0deg)
+  -webkit-transform: rotate(0deg);
+  transform-style: preserve-3d;
 }
 .wrap{
   position: absolute;
