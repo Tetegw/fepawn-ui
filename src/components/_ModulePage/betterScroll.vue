@@ -1,6 +1,6 @@
 <template>
   <div class="better-scroll">
-    <router-link to="/betterScroll/pullup">下拉刷新-Pullup</router-link>
+    <router-link to="/betterScroll/pullToLoadMore">下拉刷新上拉加载</router-link>
     <router-view></router-view>
   </div>
 </template>

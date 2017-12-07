@@ -9,7 +9,7 @@ import Switch from '@/components/_ModulePage/switchPage'
 import ActionSheet from '@/components/_ModulePage/actionSheetPage'
 import ButtonTab from '@/components/_ModulePage/buttonTabPage'
 import BetterScroll from '@/components/_ModulePage/betterScroll'
-import Pullup from '@/components/BetterScroll/pullup'
+import PullToLoadMore from '@/components/BetterScroll/pullToLoadMore'
 
 Vue.use(Router)
 
@@ -61,9 +61,9 @@ export default new Router({
       component: BetterScroll,
       children: [
         {
-          path: 'pullup',
-          name: 'Pullup',
-          component: Pullup
+          path: 'pullToLoadMore',
+          name: 'PullToLoadMore',
+          component: PullToLoadMore
         }
       ]
     }
