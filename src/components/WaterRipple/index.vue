@@ -59,6 +59,7 @@ export default {
   background: #ffefe7;
   border-radius: 50%;
   overflow: hidden;
+  transform: rotate(0deg)
 }
 .wrap{
   position: absolute;
