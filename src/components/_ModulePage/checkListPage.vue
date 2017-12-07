@@ -66,6 +66,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('../../assets/style/index.css');
 .full-page.bgfbf9fe{
   background-color:#fbf9fe;
 }

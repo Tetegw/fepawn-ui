@@ -10,6 +10,7 @@
       <li><router-link to="/actionSheet">ActionSheet</router-link></li>
       <li><router-link to="/buttonTab">buttonTab</router-link></li>
       <li><router-link to="/betterScroll">betterScroll</router-link></li>
+      <li><router-link to="/waterRipple">waterRipple</router-link></li>
       <li><a href="https://tetegw.github.io/fepawn-ui/dist/static/readMe.html">文档说明</a></li>
     </ul>
   </div>

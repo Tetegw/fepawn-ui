@@ -10,6 +10,7 @@ import ActionSheet from '@/components/_ModulePage/actionSheetPage'
 import ButtonTab from '@/components/_ModulePage/buttonTabPage'
 import BetterScroll from '@/components/_ModulePage/betterScroll'
 import PullToLoadMore from '@/components/BetterScroll/pullToLoadMore'
+import WaterRipple from '@/components/_ModulePage/waterRipple'
 
 Vue.use(Router)
 
@@ -66,6 +67,11 @@ export default new Router({
           component: PullToLoadMore
         }
       ]
+    },
+    {
+      path: '/waterRipple',
+      name: 'WaterRipple',
+      component: WaterRipple
     }
   ]
 })
