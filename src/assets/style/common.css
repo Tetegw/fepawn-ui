@@ -67,6 +67,7 @@ html{
   height: 100%;
   border: 1px solid #D5D5D6;
   color: #D5D5D6;
+  box-sizing: border-box;
 }
 
 /* 点击态样式 */
