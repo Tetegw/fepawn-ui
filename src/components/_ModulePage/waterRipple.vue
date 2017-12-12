@@ -1,17 +1,15 @@
 <template>
   <div class="full-page">
     <div class="water-ripple-wrap">
-      <water-ripple :value="value" :wrapSize="wrapSize"></water-ripple>
+      <water-ripple :value="value" :wrapSize="wrapSize" class="water-ripple"></water-ripple>
     </div>
     <input class="range" type="range" v-model="rangeValue" min="0" max="100" @change="rangeChange">
     <div>当前比例：{{value}}</div>
-    <bubble :y="10"></bubble>
   </div>
 </template>
 
 <script>
 import WaterRipple from '@/components/WaterRipple'
-import Bubble from '@/components/WaterRipple/bubble'
 export default {
   data () {
     return {
@@ -26,13 +24,12 @@ export default {
     }
   },
   components: {
-    'water-ripple': WaterRipple,
-    bubble: Bubble
+    'water-ripple': WaterRipple
   }
 }
 </script>
 
-<style>
+<style scoped>
 @import url('../../assets/style/index.css');
 .range {
   height: 30px;
@@ -40,5 +37,10 @@ export default {
 .water-ripple-wrap {
   height: 200px;
   padding: 20px;
+}
+.water-ripple-wrap .water-ripple{
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%)
 }
 </style>
