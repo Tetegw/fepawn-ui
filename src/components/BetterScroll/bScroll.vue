@@ -72,6 +72,18 @@ export default {
     refreshDelay: {
       type: Number,
       default: 20
+    },
+    scrollbar: {
+      type: null,
+      default: false
+    },
+    pullDownRefresh: {
+      type: null,
+      default: true
+    },
+    pullUpLoad: {
+      type: null,
+      default: true
     }
   },
   mounted () {
@@ -89,7 +101,10 @@ export default {
       this.scroll = new BScroll(this.$refs.wrapper, {
         probeType: this.probeType,
         click: this.click,
-        scrollX: this.scrollX
+        scrollX: this.scrollX,
+        scrollbar: this.scrollbar,
+        pullDownRefresh: this.pullDownRefresh,
+        pullUpLoad: this.pullUpLoad
       })
 
       // 是否派发滚动事件
@@ -125,6 +140,15 @@ export default {
           this.$emit('beforeScroll')
         })
       }
+      // 是否派发下拉刷新事件
+      if (this.pullDownRefresh) {
+        this._initPullDownRefresh()
+      }
+    },
+    _initPullDownRefresh () {
+      this.scroll.on('pullingDown', () => {
+        this.$emit('pullingDown')
+      })
     },
     disable () {
       // 代理better-scroll的disable方法
