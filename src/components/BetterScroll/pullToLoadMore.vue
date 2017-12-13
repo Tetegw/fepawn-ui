@@ -1,84 +1,48 @@
 <template>
-  <div>
-    <div class="pull-up-wrap">
-      <b-scroll class="wrapper border-1px"
-        :data="testData"
-        :pulldown="true"
-        :pullup="true"
-        @pulldown="dowmLoadMore"
-        @pullup="upLoadMore"
-        @pullingDown="pullingDown"
-      >
-        <ul class="content">
-          <li class="border-bot-1px" v-for="(item, index) in testData" :key="index">{{item}}</li>
-        </ul>
-        <div class="loading-wrapper"></div>
-      </b-scroll>
-    </div>
-    <div class="message">{{message}}
-      <span v-show="downNum">{{downNum}}</span>
-      <span v-show="upNum">{{upNum}}</span>
-    </div>
+  <div class="pullToLoadMore">
+    <vertical-scroll
+      ref="vScroll"
+      :listData="listData"
+      :pullDownRefresh="true"
+      :pullUpLoad="true"
+      @pullingDown="pullingDown"
+    ></vertical-scroll>
   </div>
 </template>
 
 <script>
-import BScroll from './bScroll'
+import verticalScroll from '@/components/BetterScroll/baseCom/verticalScroll'
 export default {
   data () {
     return {
-      testData: ['I am the No.1 line', 'I am the No.2 line', 'I am the No.3 line', 'I am the No.4 line', 'I am the No.5 line', 'I am the No.6 line', 'I am the No.7 line', 'I am the No.8 line', 'I am the No.9 line', 'I am the No.10 line', 'I am the No.11 line', 'I am the No.12 line', 'I am the No.13 line', 'I am the No.14 line', 'I am the No.15 line', 'I am the No.16 line', 'I am the No.17 line', 'I am the No.18 line'],
-      message: '',
-      downNum: 0,
-      upNum: 0
+      listData: ['I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components', 'I is pullToLoadMore components']
     }
   },
   methods: {
-    dowmLoadMore () {
-      console.log('下拉刷新')
-      this.message = '下拉刷新'
-      this.upNum = 0
-      this.downNum++
-    },
-    upLoadMore () {
-      console.log('上拉加载')
-      this.message = '上拉加载'
-      this.downNum = 0
-      this.upNum++
-    },
     pullingDown () {
-      console.log('object')
+      // 模拟更新数据
+      console.log('下拉加载数据...')
+      setTimeout(() => {
+        if (Math.random() > 0.5) {
+          // 如果有新数据
+          this.listData.unshift(`当前时间：${new Date().toLocaleString()}`)
+        } else {
+          // 如果没有新数据
+          this.$refs.vScroll.forceUpdate()
+        }
+      }, 2000)
     }
   },
   components: {
-    'b-scroll': BScroll
+    'vertical-scroll': verticalScroll
   }
 }
 </script>
 
 <style>
-@import url('../../assets/style/index.css');
-.pull-up-wrap{
-  margin: 20px 20px 0;
-}
-.wrapper {
-  height: 400px;
-  overflow: auto;
-}
-ul.content {
-  padding: 0 10px;
-  text-align: left;
-}
-.content li {
-  line-height: 50px;
-  padding-left: 10px;
-}
-ul, li{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.message{
-  margin-top: 30px;
+.pullToLoadMore{
+  position: relative;
+  height: 500px;
+  margin-top: 20px;
 }
 </style>
