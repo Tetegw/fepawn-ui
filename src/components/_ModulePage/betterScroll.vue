@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style>
-
+.better-scroll{
+  padding: 15px;
+}
 </style>
