@@ -2,33 +2,42 @@
   <div ref="wrapper" class="wrapper">
     <!-- 滚动区块 -->
     <div class="scroll-content">
-      <slot>
-        <ul class="list-content">
-          <li class="list-item" v-for="(item, index) in listData" :key="index">{{item}}</li>
-        </ul>
+      <div ref="listWrapper">
+        <slot>
+          <ul class="list-content">
+            <li class="list-item" v-for="(item, index) in listData" :key="index">{{item}}</li>
+          </ul>
+        </slot>
+      </div>
+      <!-- 上拉区块 -->
+      <slot name="pullup"
+        :pullUpLoad="pullUpLoad"
+        :isPullingUp="isPullingUp"
+      >
+        <div class="pullup-wrapper" v-if="pullUpLoad">
+          <div class="before-trigger" v-if="!isPullingUp">
+            <span>{{pullupText}}</span>
+          </div>
+          <div class="after-trigger" v-else>
+            加载中...
+          </div>
+        </div>
       </slot>
     </div>
-    <!-- 上拉区块 -->
-    <slot name="pullup">
-      <div class="pullup-wrapper">
-        <div class="before-trigger" >
-          <span>{{pullupText}}</span>
-        </div>
-        <div class="after-trigger">
-          加载中...
-        </div>
-      </div>
-    </slot>
     <!-- 下拉区块 -->
     <slot name="pulldown"
       :pullDownStyle="pullDownStyle"
+      :pullDownRefresh="pullDownRefresh"
+      :beforePullDown="beforePullDown"
+      :bubbleY="bubbleY"
+      :isPullingDown="isPullingDown"
     >
-      <div class="pulldown-wrapper" :style="pullDownStyle">
+      <div class="pulldown-wrapper" :style="pullDownStyle" v-if="pullDownRefresh">
         <div class="before-trigger" v-if="beforePullDown">
           <bubble :y="bubbleY"></bubble>
         </div>
         <div class="after-trigger" v-else>
-          加载中...
+          刷新中...
         </div>
       </div>
     </slot>
@@ -38,6 +47,7 @@
 <script>
 import Bubble from './bubble'
 import BScroll from 'better-scroll'
+import * as Dom from '@/assets/js/dom'
 
 // const COMPONENT_NAME = 'scroll'
 const DIRECTION_H = 'horizontal'
@@ -47,11 +57,12 @@ export default {
   data () {
     return {
       bubbleY: 0,
-      pullupText: '正在加载...',
       beforePullDown: true,
       isPullingDown: false,
       pullDownInitTop: -50,
-      pullDownStyle: ''
+      pullDownStyle: '',
+      isPullingUp: false,
+      pullUpDirty: true
     }
   },
   props: {
@@ -106,7 +117,17 @@ export default {
       default: false
     }
   },
+  computed: {
+    pullupText () {
+      let moreTxt = '加载更多...'
+      let noMoreTxt = '没有数据可加载...'
+      return this.pullUpDirty ? moreTxt : noMoreTxt
+    }
+  },
   mounted () {
+    // 初始化设置下拉Loading的位置
+    this.pullDownStyle = `top: ${this.pullDownInitTop}px`
+    // 初始化scroll框架
     setTimeout(() => {
       this.initScroll()
     }, 20)
@@ -115,6 +136,9 @@ export default {
     initScroll () {
       if (!this.$refs.wrapper) {
         return
+      }
+      if (this.$refs.listWrapper && (this.pullDownRefresh || this.pullUpLoad)) {
+        this.$refs.listWrapper.style.minHeight = `${Dom.getRect(this.$refs.wrapper).height + 1}px`
       }
       let options = {
         probeType: this.probeType,
@@ -178,42 +202,58 @@ export default {
       this.scroll.on('scroll', (pos) => {
         if (this.beforePullDown) {
           this.bubbleY = Math.max(0, pos.y + this.pullDownInitTop)
-          this.pullDownStyle = `top: ${Math.min(pos.y + this.pullDownInitTop, 10)}px`
+          this.pullDownStyle = `top: ${Math.min(pos.y + this.pullDownInitTop, 0)}px`
         } else {
           this.bubbleY = 0
         }
-
+        // _reboundPullDown 中 设置true
         if (this.isRebounding) {
           this.pullDownStyle = `top: ${10 - (this.pullDownRefresh.stop - pos.y)}px`
         }
       })
     },
     _initPullUpLoad () {
-    },
-    _reboundPullDown () {
-      const {stopTime = 600} = this.pullDownRefresh
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          this.isRebounding = true
-          this.scroll.finishPullDown()
-          resolve()
-        }, stopTime)
+      this.scroll.on('pullingUp', () => {
+        this.isPullingUp = true
+        this.$emit('pullingUp')
       })
     },
     forceUpdate (dirty) {
+      // 暴力刷新，请求接口后 强制刷新
       if (this.pullDownRefresh && this.isPullingDown) {
         this.isPullingDown = false
         this._reboundPullDown().then(() => {
           this._afterPullDown()
         })
-      } else if (this.pullUpLoad && this.isPullUpLoad) {
-        this.isPullUpLoad = false
+      } else if (this.pullUpLoad && this.isPullingUp) {
+        this.isPullingUp = false
         this.scroll.finishPullUp()
         this.pullUpDirty = dirty
         this.refresh()
       } else {
         this.refresh()
       }
+    },
+    _reboundPullDown () {
+      // 下拉反弹方法
+      const {stopTime = 600} = this.pullDownRefresh
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          this.isRebounding = true
+          // 当下拉刷新数据加载完毕后，需要调用此方法告诉 better-scroll 数据已加载。
+          this.scroll.finishPullDown()
+          resolve()
+        }, stopTime)
+      })
+    },
+    _afterPullDown () {
+      setTimeout(() => {
+        this.beforePullDown = true
+        this.pullDownStyle = `top: ${this.pullDownInitTop}px`
+        this.isRebounding = false
+        this.refresh()
+      }, this.scroll.options.bounceTime)
+      // this.scroll.options.bounceTime 设置回弹动画的动画时长，默认700
     }
   },
   watch: {
@@ -268,7 +308,7 @@ export default {
   align-items: center;
   transition: all;
 }
-.after-trigger{
+.pulldown-wrapper .after-trigger{
   margin-top: 10px;
 }
 .pullup-wrapper{
@@ -276,5 +316,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px 0 10px;
 }
 </style>
