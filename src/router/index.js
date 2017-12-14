@@ -9,7 +9,8 @@ import Switch from '@/components/_ModulePage/switchPage'
 import ActionSheet from '@/components/_ModulePage/actionSheetPage'
 import ButtonTab from '@/components/_ModulePage/buttonTabPage'
 import BetterScroll from '@/components/_ModulePage/betterScroll'
-import PullToLoadMore from '@/components/BetterScroll/pullToLoadMore'
+import PullLoadMore from '@/components/BetterScroll/pullLoadMore'
+import PickerPage from '@/components/BetterScroll/pickerPage'
 import WaterRipple from '@/components/_ModulePage/waterRipple'
 
 Vue.use(Router)
@@ -62,9 +63,14 @@ export default new Router({
       component: BetterScroll,
       children: [
         {
-          path: 'pullToLoadMore',
-          name: 'PullToLoadMore',
-          component: PullToLoadMore
+          path: 'pullLoadMore',
+          name: 'pullLoadMore',
+          component: PullLoadMore
+        },
+        {
+          path: 'pickerPage',
+          name: 'pickerPage',
+          component: PickerPage
         }
       ]
     },

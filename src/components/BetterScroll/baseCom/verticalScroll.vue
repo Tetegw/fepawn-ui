@@ -14,7 +14,7 @@
         :pullUpLoad="pullUpLoad"
         :isPullingUp="isPullingUp"
       >
-        <div class="pullup-wrapper" v-if="pullUpLoad">
+        <div class="pullup-wrapper" v-if="pullUpLoad && scrollInit">
           <div class="before-trigger" v-if="!isPullingUp">
             <span>{{pullupText}}</span>
           </div>
@@ -49,13 +49,15 @@ import Bubble from './bubble'
 import BScroll from 'better-scroll'
 import * as Dom from '@/assets/js/dom'
 
-// const COMPONENT_NAME = 'scroll'
+const COMPONENT_NAME = 'scroll'
 const DIRECTION_H = 'horizontal'
 const DIRECTION_V = 'vertical'
 
 export default {
+  name: COMPONENT_NAME,
   data () {
     return {
+      scrollInit: false,
       bubbleY: 0,
       beforePullDown: true,
       isPullingDown: false,
@@ -168,6 +170,7 @@ export default {
       if (this.pullUpLoad) {
         this._initPullUpLoad()
       }
+      this.scrollInit = true
     },
     disable () {
       this.scroll && this.scroll.disable()
@@ -292,11 +295,10 @@ export default {
 }
 .list-item{
   list-style: none;
-  height: 40px;
   text-align: left;
-  line-height: 40px;
+  line-height: 26px;
   font-size: 18px;
-  padding-left: 20px;
+  padding:15px;
   border-bottom: 1px solid #e5e5e5;
 } 
 .pulldown-wrapper{

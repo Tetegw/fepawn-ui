@@ -1,6 +1,7 @@
 <template>
   <div class="better-scroll">
-    <router-link to="/betterScroll/pullToLoadMore">下拉刷新上拉加载</router-link>
+    <router-link to="/betterScroll/pullLoadMore">pullLoadMore</router-link>
+    <router-link to="/betterScroll/pickerPage">pickerPage</router-link>
     <router-view></router-view>
   </div>
 </template>

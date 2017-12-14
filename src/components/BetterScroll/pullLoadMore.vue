@@ -63,5 +63,6 @@ export default {
   height: 500px;
   margin-top: 20px;
   border: 1px solid #d9d9d9;
+  font-family: PingFang SC,STHeitiSC-Light,Helvetica-Light,arial,sans-serif;
 }
 </style>
