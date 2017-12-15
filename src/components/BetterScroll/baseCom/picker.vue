@@ -1,6 +1,6 @@
 <template>
-  <div class="picker">
-		<div class="picker-panel">
+  <div class="picker" v-show="state === 1" @touchmove.prevent @click="cancel">
+		<div class="picker-panel" v-show="state === 1">
 			<!-- header -->
 			<div class="picker-choose border-bot-1px">
 				<span class="cancel">cancelTxt</span>
@@ -10,13 +10,13 @@
 			<!-- content -->
 			<div class="picker-content">
 				<!-- 上下遮罩，一像素边线 -->
-				<div class="mask-top border-bottom-1px"></div>
+				<div class="mask-top border-bot-1px"></div>
 				<div class="mask-bottom border-top-1px"></div>
 				<!-- 3D 选择区域 -->
 				<div class="wheel-wrapper" ref="wheelWrapper">
-					<div class="wheel" v-for="(item, index) in pickerData" :key="item">
+					<div class="wheel" v-for="(item, index) in pickerData" :key="index">
 						<ul class="wheel-scroll">
-							<li v-for="(item, index) in data" class="wheel-item" :key="item">{{item.text}}</li>
+							<li v-for="(el, index) in item" class="wheel-item" :key="index">{{el.text}}</li>
 						</ul>
 					</div>
 				</div>
@@ -28,12 +28,104 @@
 </template>
 
 <script>
-// import BScroll from 'better-scroll'
+import BScroll from 'better-scroll'
+const COMPONENT_NAME = 'picker'
+const STATE_HIDE = 0
+const STATE_SHOW = 1
+
 export default {
+  name: COMPONENT_NAME,
   data () {
     return {
-      pickerData: [],
-      data: []
+      state: STATE_HIDE,
+      pickerData: this.data.slice(),
+      pickerSelectedIndex: this.selectedIndex // picker选中索引
+    }
+  },
+  props: {
+    data: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    title: {
+      type: String
+    },
+    cancelTxt: {
+      type: String,
+      default: 'cancel'
+    },
+    confirmTxt: {
+      type: String,
+      default: 'confirm'
+    },
+    selectedIndex: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    value: {
+      type: Boolean,
+      default: false
+    }
+  },
+  created () {
+    // 如果初始化没有选中任何数据，默认选中第一条
+    if (!this.pickerSelectedIndex.length) {
+      this.pickerSelectedIndex = []
+      this.pickerData.forEach((el, index) => {
+        this.pickerSelectedIndex[index] = 0
+      })
+    }
+  },
+  methods: {
+    show () {
+      if (this.state === STATE_SHOW) {
+        return
+      }
+      // 展示
+      this.state = STATE_SHOW
+      if (!this.wheels || this.dirty) {
+        this.$nextTick(() => {
+          this.wheels = []
+          let wheelWrapper = this.$refs.wheelWrapper
+          this.pickerData.forEach((element, i) => {
+            this._createWheel(wheelWrapper, i)
+          })
+          this.dirty = false
+        })
+      } else {
+        this.pickerData.forEach((element, i) => {
+          this.wheels[i].enable()
+          this.wheels[i].wheelTo(this.pickerSelectedIndex[i])
+        })
+      }
+    },
+    cancel () {
+      // 隐藏
+      this.state = STATE_HIDE
+    },
+    _createWheel (wheelWrapper, i) {
+      if (!this.wheels[i]) {
+        this.wheels[i] = new BScroll(wheelWrapper.children[i], {
+          wheel: {
+            selectedIndex: this.pickerSelectedIndex[i],
+            /** 默认值就是下面配置的两个，为了展示二者的作用，这里再配置一下 */
+            wheelWrapperClass: 'wheel-scroll',
+            wheelItemClass: 'wheel-item'
+          },
+          probeType: 3
+        })
+        this.wheels[i].on('scrollEnd', () => {
+          console.log(i, this.wheels[i].getSelectedIndex())
+          this.$emit('change', i, this.wheels[i].getSelectedIndex())
+        })
+      } else {
+        this.wheels[i].refresh()
+      }
+      return this.wheels[i]
     }
   }
 }
