@@ -423,7 +423,7 @@ export default {
       console.log('select: ', val, index, text)
     },
     valueChange (index, args) {
-      console.log(index)
+      console.log('value变化了：', index)
       switch (index) {
         case 0:
           this.oneColumn = args[2].join('--')

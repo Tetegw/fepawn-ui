@@ -2,7 +2,7 @@
   <div class="picker" v-show="state === 1" @touchmove.prevent @click="cancel">
 		<div class="picker-panel" v-show="state === 1">
 			<!-- header -->
-			<div class="picker-choose border-bot-1px">
+			<div class="picker-choose border-bot-1px" @click.prevent.stop>
 				<span class="cancel" @click="cancel">{{cancelTxt}}</span>
 				<span class="confirm" @click.stop="confirm">{{confirmTxt}}</span>
 				<h1 class="picker-title">{{title}}</h1>
@@ -174,7 +174,6 @@ export default {
     _canConfirm () {
       // 每一个wheel都不再动画了，即可以确定提交
       return this.wheels.every((wheel) => {
-        console.log(!wheel.isInTransition)
         return !wheel.isInTransition
       })
     }
