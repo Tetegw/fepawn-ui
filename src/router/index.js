@@ -12,6 +12,7 @@ import BetterScroll from '@/components/_ModulePage/betterScroll'
 import PullLoadMore from '@/components/BetterScroll/pullLoadMore'
 import PickerPage from '@/components/BetterScroll/pickerPage'
 import WaterRipple from '@/components/_ModulePage/waterRipple'
+import Dial from '@/components/_ModulePage/dial'
 
 Vue.use(Router)
 
@@ -78,6 +79,11 @@ export default new Router({
       path: '/waterRipple',
       name: 'WaterRipple',
       component: WaterRipple
+    },
+    {
+      path: '/dial',
+      name: 'Dial',
+      component: Dial
     }
   ]
 })
