@@ -8,10 +8,10 @@
       <li><router-link to="/switch">Switch</router-link></li>
       <li><router-link to="/toast">Toast</router-link></li>
       <li><router-link to="/actionSheet">ActionSheet</router-link></li>
-      <li><router-link to="/buttonTab">buttonTab</router-link></li>
-      <li><router-link to="/betterScroll">betterScroll</router-link></li>
-      <li><router-link to="/waterRipple">waterRipple</router-link></li>
-      <li><router-link to="/dial">dial</router-link></li>
+      <li><router-link to="/buttonTab">ButtonTab</router-link></li>
+      <li><router-link to="/betterScroll">BetterScroll</router-link></li>
+      <li><router-link to="/waterRipple">WaterRipple</router-link></li>
+      <li><router-link to="/dial">Dial</router-link></li>
       <li><a href="https://tetegw.github.io/fepawn-ui/dist/static/readMe.html">文档说明</a></li>
     </ul>
   </div>
