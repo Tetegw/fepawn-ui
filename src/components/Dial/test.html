@@ -177,10 +177,10 @@
         ctx.drawImage(imgObj['background'], 0, 0, imgW, imgH, 0, 0, imgW, imgH);     
         // 绘制动画
         raf(function() {
-            circleHeader(imgObj['circle'])
             if (START > END - STEP) {
                 return false
             };
+            circleHeader(imgObj['circle'])
             foregroundCircle()
             return true
         }, TIMEOUT)
