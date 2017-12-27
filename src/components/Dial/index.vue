@@ -146,12 +146,13 @@ export default {
       }
 
       // 绘制圆环头部，用cv2画，然后合成
-      function circleHeader (img) {
+      function circleHeader (img, flag) {
         ctx2.clearRect(0, 0, cv.width, cv.height)
         var imgW = img.width
         var imgH = img.height
-        var x = Math.cos(toRadian(_this.START + _this.step)) * RADIUS + CIRCLEX - imgW / 2
-        var y = Math.sin(toRadian(_this.START + _this.step)) * RADIUS + CIRCLEY - imgH / 2
+        var step = flag === false ? 0 : _this.step
+        var x = Math.cos(toRadian(_this.START + step)) * RADIUS + CIRCLEX - imgW / 2
+        var y = Math.sin(toRadian(_this.START + step)) * RADIUS + CIRCLEY - imgH / 2
         ctx2.drawImage(img, 0, 0, imgW, imgH, x, y, imgW, imgH)
       }
 
@@ -188,6 +189,8 @@ export default {
         var imgW = imgObj['background'].width
         var imgH = imgObj['background'].height
         ctx.drawImage(imgObj['background'], 0, 0, imgW, imgH, 0, 0, imgW, imgH)
+        // 当0时，绘制一次白点
+        circleHeader(imgObj['circle'], false)
         // 绘制动画
         _this.animationRender(function () {
           if (_this.START > _this.END - _this.step) {
