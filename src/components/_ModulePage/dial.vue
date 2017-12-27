@@ -5,7 +5,7 @@
         v-if="showDial"
         :step="5"
         :timeOut="10"
-        :rate="Number(rate)"
+        :rate="Number(`0.${rate}`)"
       ></v-dial>
       <div class="title">个人信用卡账户</div>
       <div class="amount">可用额度</div>
@@ -14,7 +14,7 @@
       <div class="totalAmount"><span>$</span>3,467,343.66</div>
     </div>
     <div class="input">
-      <input class="input-item" type="number" v-model="rate" @keydown.enter="drawCanvas">
+      0.<input class="input-item" type="number" v-model="rate" @keydown.enter="drawCanvas">
       <button class="input-item" @click="drawCanvas">重新渲染</button>
     </div>
   </div>
@@ -25,8 +25,17 @@ import Dial from '@/components/Dial'
 export default {
   data () {
     return {
-      rate: 0.5,
+      rate: 5,
       showDial: true
+    }
+  },
+  watch: {
+    rate (newVal) {
+      if (newVal === '') {
+        this.rate = ''
+        return
+      }
+      this.rate = Math.ceil(newVal)
     }
   },
   methods: {
