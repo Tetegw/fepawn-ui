@@ -34,8 +34,14 @@ export default {
     }
   },
   created () {
+    this.copyRate = this.rate
+    if (this.copyRate <= 0) {
+      this.copyRate = 0
+    } else if (this.copyRate >= 1) {
+      this.copyRate = 1
+    }
     this.START = 169.5
-    this.END = this.START + 201 * this.rate   // 结束角度
+    this.END = this.START + 201 * this.copyRate   // 结束角度
     this.animationFrame()
     this.animationRender()
   },
@@ -200,7 +206,10 @@ export default {
 <style scoped>
 .dial-wrap {
   width: 100%;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 .dial-cv {
   width: 100%;
