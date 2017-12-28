@@ -41,14 +41,14 @@ v-model双向绑定 显示隐藏(必传，布尔值，默认false)
 @cancel 监听点击取消事件
 ```
 
-### loading
+### Loading
 
 ```
 :show 显示隐藏(必传)
 :info 显示的文案(选传，默认无文案)
 ```
 
-### checkList
+### CheckList
 
 ```
 :data 渲染数据(必传 [{nama: 'aa', value: 'bb'}])
@@ -61,7 +61,7 @@ iconFloatR  icon按钮是否显示在右边(选传，默认false在左边)
 @allChecked 监听是否被全选事件，返回true(已全选)和false(未全选)
 ```
 
-### switch
+### Switch
 
 ```
 v-model双向绑定  默认状态(选传，布尔值，默认值false)
@@ -71,7 +71,7 @@ v-model双向绑定  默认状态(选传，布尔值，默认值false)
 @switch-change  监听按钮点击状态
 ```
 
-### toast
+### Toast
 
 ```
 v-model双向绑定 显示状态(必传，布尔值，默认false)
@@ -83,7 +83,7 @@ v-model双向绑定 显示状态(必传，布尔值，默认false)
 @onHide  监听隐藏事件
 ```
 
-### actionSheet
+### ActionSheet
 
 ```
 v-model双向绑定  显示状态(必传，布尔值，默认false)
@@ -93,13 +93,45 @@ v-model双向绑定  显示状态(必传，布尔值，默认false)
 @checkedItem 监听选中对象事件，返回索引index
 ```
 
-### buttonTab
+### ButtonTab
 
 ```
 :fontSize   显示字体大小(选传，Number， 默认16px)
 :itemHeight   显示的按钮高度(选传，Number，默认字体大小*2)
 :indexArr   按钮组的文案(必传，数组，默认['btn1', 'btn2'])
 @checkedItem    监听按钮点击事件，接收点击的index
+```
+
+### BetterScroll - pullLoadMore
+
+```
+:listData	数据列表
+:pullDownRefresh	是否使用下拉刷新(选传，Boolean，默认值false)
+:pullUpLoad			是否使用上拉加载(选传，Boolean，默认值false)
+@pullingDown		下拉事件(一般异步请求)
+@pullingUp			上拉事件(一般异步请求)
+```
+
+### BetterScroll - pickerPage
+
+```
+:data		数据列表(必传，格式[[{text: '', value: 1}],[],[]])
+@valueChange		value改变事件，参数(val, index, text),都是数组格式
+```
+
+### WaterRipple
+
+```
+:wrapSize	demo的宽度(选传，默认120)
+:value		value值，水波的高(必传，0-100的数字)
+```
+
+### Dial
+
+```
+:step		步数大小，每次渲染几像素(选传，Number，默认3)
+:timeOut	速率，每隔多少秒绘画一次(选传，Number，默认10)
+:rate		比例，需要显示的比例(必传，0-1数字)
 ```
 
 
