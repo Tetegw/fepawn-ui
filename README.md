@@ -96,42 +96,42 @@ v-model双向绑定  显示状态(必传，布尔值，默认false)
 ### ButtonTab
 
 ```
-:fontSize   显示字体大小(选传，Number， 默认16px)
-:itemHeight   显示的按钮高度(选传，Number，默认字体大小*2)
-:indexArr   按钮组的文案(必传，数组，默认['btn1', 'btn2'])
-@checkedItem    监听按钮点击事件，接收点击的index
+:fontSize 显示字体大小(选传，Number， 默认16px)
+:itemHeight 显示的按钮高度(选传，Number，默认字体大小*2)
+:indexArr 按钮组的文案(必传，数组，默认['btn1', 'btn2'])
+@checkedItem 监听按钮点击事件，接收点击的index
 ```
 
 ### BetterScroll - pullLoadMore
 
 ```
-:listData	数据列表
-:pullDownRefresh	是否使用下拉刷新(选传，Boolean，默认值false)
-:pullUpLoad			是否使用上拉加载(选传，Boolean，默认值false)
-@pullingDown		下拉事件(一般异步请求)
-@pullingUp			上拉事件(一般异步请求)
+:listData 数据列表
+:pullDownRefresh 是否使用下拉刷新(选传，Boolean，默认值false)
+:pullUpLoad 是否使用上拉加载(选传，Boolean，默认值false)
+@pullingDown 下拉事件(一般异步请求)
+@pullingUp 上拉事件(一般异步请求)
 ```
 
 ### BetterScroll - pickerPage
 
 ```
-:data		数据列表(必传，格式[[{text: '', value: 1}],[],[]])
-@valueChange		value改变事件，参数(val, index, text),都是数组格式
+:data 数据列表(必传，格式[[{text: '', value: 1}],[],[]])
+@valueChange value改变事件，参数(val, index, text),都是数组格式
 ```
 
 ### WaterRipple
 
 ```
-:wrapSize	demo的宽度(选传，默认120)
-:value		value值，水波的高(必传，0-100的数字)
+:wrapSize demo的宽度(选传，默认120)
+:value value值，水波的高(必传，0-100的数字)
 ```
 
 ### Dial
 
 ```
-:step		步数大小，每次渲染几像素(选传，Number，默认3)
-:timeOut	速率，每隔多少秒绘画一次(选传，Number，默认10)
-:rate		比例，需要显示的比例(必传，0-1数字)
+:step 步数大小，每次渲染几像素(选传，Number，默认3)
+:timeOut 速率，每隔多少秒绘画一次(选传，Number，默认10)
+:rate 比例，需要显示的比例(必传，0-1数字)
 ```
 
 
