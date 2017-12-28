@@ -4,10 +4,10 @@
 
 
 
-| ![20171228201750](.\static\proImage\20171228201750.png) | ![20171228201837](.\static\proImage\20171228201837.png) |
+| ![20171228201750](https://github.com/Tetegw/fepawn-ui/blob/master/static/proImage/20171228201750.png) | ![20171228201837](https://github.com/Tetegw/fepawn-ui/blob/master/static/proImage/20171228201837.png) |
 | ---------------------------------------- | ---------------------------------------- |
-| ![20171228201826](.\static\proImage\20171228201826.png) | ![20171228201819](.\static\proImage\20171228201819.png) |
-| ![20171228201813](.\static\proImage\20171228201813.png) | ![20171228201843](.\static\proImage\20171228201843.png) |
+| ![20171228201826](https://github.com/Tetegw/fepawn-ui/blob/master/static/proImage/20171228201826.png) | ![20171228201819](https://github.com/Tetegw/fepawn-ui/blob/master/static/proImage/20171228201819.png) |
+| ![20171228201813](https://github.com/Tetegw/fepawn-ui/blob/master/static/proImage/20171228201813.png) | ![20171228201843](https://github.com/Tetegw/fepawn-ui/blob/master/static/proImage/20171228201843.png) |
 
 
 
@@ -101,4 +101,6 @@ v-model双向绑定  显示状态(必传，布尔值，默认false)
 :indexArr   按钮组的文案(必传，数组，默认['btn1', 'btn2'])
 @checkedItem    监听按钮点击事件，接收点击的index
 ```
+
+
 
