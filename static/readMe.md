@@ -4,28 +4,6 @@
 
 
 
-| ![20171228201750](https://github.com/Tetegw/fepawn-ui/blob/master/static/proImage/20171228201750.png) | ![20171228201837](https://github.com/Tetegw/fepawn-ui/blob/master/static/proImage/20171228201837.png) |
-| ---------------------------------------- | ---------------------------------------- |
-| ![20171228201826](https://github.com/Tetegw/fepawn-ui/blob/master/static/proImage/20171228201826.png) | ![20171228201819](https://github.com/Tetegw/fepawn-ui/blob/master/static/proImage/20171228201819.png) |
-| ![20171228201813](https://github.com/Tetegw/fepawn-ui/blob/master/static/proImage/20171228201813.png) | ![20171228201843](https://github.com/Tetegw/fepawn-ui/blob/master/static/proImage/20171228201843.png) |
-
-
-
-## Build Setup
-
-```bash
-install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-```
-
-
-
 ## 组件说明
 
 ### Alert
@@ -132,4 +110,16 @@ v-model双向绑定  显示状态(必传，布尔值，默认false)
 :step 步数大小，每次渲染几像素(选传，Number，默认3)
 :timeOut 速率，每隔多少秒绘画一次(选传，Number，默认10)
 :rate 比例，需要显示的比例(必传，0-1数字)
+```
+
+### CountUp
+
+```
+CountUp.js
+:startVal 开始值(选传，Number， 默认0)
+:endVal 结束值(选传，Number，默认1000)
+:Decimals 小数位数(选传，Number，默认0)
+:Duration 动画时间(选传，Number，默认2s)
+:options 其他参数(选传{separator: 千分位分隔符， decimal: 小数点，prefix: 前缀，Suffix: 后缀})
+start  开启动画方法，需要外层调用
 ```

@@ -134,5 +134,15 @@ v-model双向绑定  显示状态(必传，布尔值，默认false)
 :rate 比例，需要显示的比例(必传，0-1数字)
 ```
 
+### CountUp
 
+```
+CountUp.js
+:startVal 开始值(选传，Number， 默认0)
+:endVal 结束值(选传，Number，默认1000)
+:Decimals 小数位数(选传，Number，默认0)
+:Duration 动画时间(选传，Number，默认2s)
+:options 其他参数(选传{separator: 千分位分隔符， decimal: 小数点，prefix: 前缀，Suffix: 后缀})
+start  开启动画方法，需要外层调用
+```
 
