@@ -9,7 +9,7 @@ html {
 }
 
 /* 禁止缩放表单 */
-input[type="submit"], input[type="reset"],input[type="checkbox"], input[type="button"], input {
+input[type="submit"], input[type="reset"],input[type="checkbox"], input[type="button"], input, button {
    resize: none;
    border: none;
    outline: none; 

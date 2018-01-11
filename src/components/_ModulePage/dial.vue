@@ -53,46 +53,46 @@ export default {
 </script>
 
 <style scoped>
-@import url('../../assets/style/index.css');
-.dial-wrapper{
+@import url("../../assets/style/index.css");
+.dial-wrapper {
   position: relative;
   text-align: center;
 }
-.dial-wrapper .title{
+.dial-wrapper .title {
   padding-top: 6%;
   color: #ffffff;
   font-size: 14px;
 }
-.dial-wrapper .amount{
+.dial-wrapper .amount {
   font-size: 16px;
   color: #fff;
   padding-top: 21%;
 }
-.dial-wrapper .money{
+.dial-wrapper .money {
   font-size: 24px;
   color: #fff;
   padding-top: 5%;
   font-weight: bold;
 }
-.dial-wrapper .money span{
+.dial-wrapper .money span {
   font-size: 14px;
 }
-.dial-wrapper .split{
+.dial-wrapper .split {
   width: 40%;
   margin: 2% auto 0;
 }
-.dial-wrapper .totalAmount{
+.dial-wrapper .totalAmount {
   font-size: 14px;
-  color: #fff;  
-  padding-top: 2%;  
+  color: #fff;
+  padding-top: 2%;
 }
-.input{
+.input {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
 }
-.input-item{
+.input-item {
   margin-top: 10px;
   padding: 5px;
   border: 1px solid #d9d9d9;
