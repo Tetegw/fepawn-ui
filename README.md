@@ -145,5 +145,3 @@ CountUp.js
 :options 其他参数(选传{separator: 千分位分隔符， decimal: 小数点，prefix: 前缀，Suffix: 后缀})
 start  开启动画方法，需要外层调用
 ```
-
-测试
