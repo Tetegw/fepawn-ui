@@ -14,6 +14,7 @@ import PickerPage from '@/components/BetterScroll/pickerPage'
 import WaterRipple from '@/components/_ModulePage/waterRipple'
 import Dial from '@/components/_ModulePage/dial'
 import CountUp from '@/components/_ModulePage/countUp'
+import Range from '@/components/_ModulePage/range'
 
 Vue.use(Router)
 
@@ -88,6 +89,11 @@ export default new Router({
     path: '/countUp',
     name: 'CountUp',
     component: CountUp
+  },
+  {
+    path: '/range',
+    name: 'Range',
+    component: Range
   }
   ]
 })
