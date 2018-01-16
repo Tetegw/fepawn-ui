@@ -30,9 +30,10 @@ export default {
   },
   methods: {
     initProgressWidth (value) {
+      let newVal = Math.min(value, 1)
       let barWidth = this.$refs.progressBar.clientWidth
-      this.$refs.progress.style.width = `${value * barWidth}px`
-      this.$refs.progressBtn.style['transform'] = `translate3d(${value * barWidth}px, 0, 0)`
+      this.$refs.progress.style.width = `${newVal * barWidth}px`
+      this.$refs.progressBtn.style['transform'] = `translate3d(${newVal * barWidth}px, 0, 0)`
     },
     prgTouchStart (e) {
       this.touch.init = true

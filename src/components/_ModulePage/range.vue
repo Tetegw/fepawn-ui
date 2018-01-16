@@ -1,7 +1,7 @@
 <template>
   <div class="full-page bgfbf9fe">
     <v-range v-model="myRange"></v-range>
-    <div>{{myRange.toFixed(2)}}</div>
+    <div>{{Math.min(myRange, 1).toFixed(2)}}</div>
   </div>
 </template>
 
