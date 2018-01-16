@@ -1,12 +1,18 @@
 <template>
   <div class="full-page bgfbf9fe">
-    <v-range></v-range>
+    <v-range v-model="myRange"></v-range>
+    <div>{{myRange.toFixed(2)}}</div>
   </div>
 </template>
 
 <script>
 import Range from '@/components/Range'
 export default {
+  data () {
+    return {
+      myRange: 0.45
+    }
+  },
   components: {
     'v-range': Range
   }

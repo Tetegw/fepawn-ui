@@ -10,12 +10,30 @@
 </template>
 
 <script>
-const progressBtnWidth = 16
 export default {
+  props: {
+    value: {
+      type: Number,
+      default: 0
+    }
+  },
   created () {
     this.touch = {}
   },
+  mounted () {
+    this.initProgressWidth(this.value)
+  },
+  watch: {
+    value (newVal) {
+      this.initProgressWidth(newVal)
+    }
+  },
   methods: {
+    initProgressWidth (value) {
+      let barWidth = this.$refs.progressBar.clientWidth
+      this.$refs.progress.style.width = `${value * barWidth}px`
+      this.$refs.progressBtn.style['transform'] = `translate3d(${value * barWidth}px, 0, 0)`
+    },
     prgTouchStart (e) {
       this.touch.init = true
       // 滑动开始X坐标
@@ -45,9 +63,9 @@ export default {
     },
     _triggerPercent () {
       // 获取百分比，emit到上一个组件
-      let barWidth = this.$refs.progressBar.clientWidth - progressBtnWidth / 2
+      let barWidth = this.$refs.progressBar.clientWidth
       let perWidth = this.$refs.progress.clientWidth
-      console.log(barWidth, perWidth)
+      this.$emit('input', perWidth / barWidth)
     }
   }
 }
