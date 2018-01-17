@@ -49,6 +49,7 @@ export default {
       let deltaX = e.touches[0].clientX - this.touch.startX
       let progressWidth = Math.min(Math.max(0, (this.touch.left + deltaX)), (this.$refs.progressBar.clientWidth))
       this.setOffsetWidth(progressWidth)
+      this._triggerPercent()
     },
     prgTouchEnd () {
       if (!this.touch.init) {
@@ -93,7 +94,7 @@ export default {
 }
 
 .progress-btn {
-  position: relative;
+  position: absolute;
   top: 7px;
   left: 7px;
   box-sizing: border-box;
