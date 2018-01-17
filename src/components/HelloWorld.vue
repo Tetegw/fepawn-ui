@@ -28,6 +28,7 @@
       <li><router-link to="/dial">Dial</router-link></li>
       <li><router-link to="/countUp">CountUp</router-link></li>
       <li><router-link to="/range">Range</router-link></li>
+      <li><router-link to="/security">Security</router-link></li>
       <li><a href="https://tetegw.github.io/fepawn-ui/dist/static/readMe.html">文档说明</a></li>
     </ul>
   </div>
