@@ -160,7 +160,4 @@ export default {
  flex: 1 1 auto;
 }
 
-[data-touch].active {
-  background: #f0f0f0
-}
 </style>
