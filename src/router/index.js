@@ -15,6 +15,7 @@ import WaterRipple from '@/components/_ModulePage/waterRipple'
 import Dial from '@/components/_ModulePage/dial'
 import CountUp from '@/components/_ModulePage/countUp'
 import Range from '@/components/_ModulePage/range'
+import Security from '@/components/_ModulePage/security'
 
 Vue.use(Router)
 
@@ -94,6 +95,11 @@ export default new Router({
     path: '/range',
     name: 'Range',
     component: Range
+  },
+  {
+    path: '/security',
+    name: 'Security',
+    component: Security
   }
   ]
 })
