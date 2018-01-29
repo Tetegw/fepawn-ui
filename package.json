@@ -16,6 +16,7 @@
     "countup.js": "^1.9.3",
     "vconsole": "^3.0.0",
     "vue": "^2.5.2",
+    "vue-codemirror": "^4.0.3",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

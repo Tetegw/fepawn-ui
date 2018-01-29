@@ -16,6 +16,7 @@ import Dial from '@/components/_ModulePage/dial'
 import CountUp from '@/components/_ModulePage/countUp'
 import Range from '@/components/_ModulePage/range'
 import Security from '@/components/_ModulePage/security'
+import CodeTest from '@/components/_ModulePage/codeTest'
 
 Vue.use(Router)
 
@@ -100,6 +101,11 @@ export default new Router({
     path: '/security',
     name: 'Security',
     component: Security
+  },
+  {
+    path: '/codeTest',
+    name: 'CodeTest',
+    component: CodeTest
   }
   ]
 })
