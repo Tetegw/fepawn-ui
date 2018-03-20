@@ -17,6 +17,7 @@
     "vconsole": "^3.0.0",
     "vue": "^2.5.2",
     "vue-codemirror": "^4.0.3",
+    "vue-popup": "^0.2.14",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

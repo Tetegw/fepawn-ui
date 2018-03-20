@@ -17,6 +17,7 @@ import CountUp from '@/components/_ModulePage/countUp'
 import Range from '@/components/_ModulePage/range'
 import Security from '@/components/_ModulePage/security'
 import CodeTest from '@/components/_ModulePage/codeTest'
+import Keyboard from '@/components/_ModulePage/keyboard'
 
 Vue.use(Router)
 
@@ -106,6 +107,11 @@ export default new Router({
     path: '/codeTest',
     name: 'CodeTest',
     component: CodeTest
+  },
+  {
+    path: '/keyboard',
+    name: 'Keyboard',
+    component: Keyboard
   }
   ]
 })
