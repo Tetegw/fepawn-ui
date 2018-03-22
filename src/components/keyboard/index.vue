@@ -3,7 +3,7 @@
         <div class="pec-keyboard-head">
             <i class="icon-logo"></i>
             <span class="pec-keyboard-title">
-                <slot class="pec-keyboard-title">平安银行安全键盘</slot>
+                <slot class="pec-keyboard-title">安全</slot>
             </span>
             <span class="pec-keyboard-head-right" @click="ok">
                 <i style="color: #f17940">完成</i>
